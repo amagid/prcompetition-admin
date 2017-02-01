@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../services/mysql').connection();
+const APIError = require('../APIError');
 
 const Participants = module.exports = db.define('participants', {
     name: {
@@ -25,7 +26,8 @@ const Participants = module.exports = db.define('participants', {
     classMethods: {
         getSummary,
         findById
-    }
+    },
+    timestamps: false
 });
 
 const Opportunities = require('./Opportunities');
@@ -55,6 +57,10 @@ function findById(id) {
 
     return this.constructor.prototype.findOne.call(this, options)
         .then(result => {
-            return result;
+            if (result) {
+                return result;
+            } else {
+                throw APIError(404, 'Participant not found.');
+            }
         });
 }
