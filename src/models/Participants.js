@@ -23,7 +23,8 @@ const Participants = module.exports = db.define('participants', {
     }
 }, {
     classMethods: {
-        getSummary
+        getSummary,
+        findById
     }
 });
 
@@ -43,4 +44,17 @@ function getSummary() {
         "points"
     ];
     return this.constructor.prototype.findAll.call(this, options);
+}
+
+function findById(id) {
+    const options = {};
+
+    options.where = {
+        id
+    };
+
+    return this.constructor.prototype.findOne.call(this, options)
+        .then(result => {
+            return result;
+        });
 }
