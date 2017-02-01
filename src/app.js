@@ -4,21 +4,26 @@ const express = require('express');
 const app = express();
 const config = require('../config').get();
 const logger = require('./services/logger');
+const db = require('./services/mysql');
 const routes = require('./routes');
 const bodyParser = require('body-parser');
 const responsePromise = require('./middlewares/response-promise');
 const morgan = require('morgan');
 const cors = require('cors');
 
-setUpAPI();
+db.connect().then((connection) => {
+    return require('./models/sync')();
+}).then(() => {
+    setUpAPI();
+}).then(() => {
+    const server = http.Server(app);
+    //const io = socketIO(server);
 
-const server = http.Server(app);
-//const io = socketIO(server);
+    //setUpSocket();
 
-//setUpSocket();
-
-server.listen(process.env.PORT || config.app.port);
-logger.info(`Server listening on port ${process.env.PORT || config.app.port}`);
+    server.listen(process.env.PORT || config.app.port);
+    logger.info(`Server listening on port ${process.env.PORT || config.app.port}`);
+});
 
 
 function setUpAPI() {
