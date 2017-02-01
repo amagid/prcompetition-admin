@@ -5,13 +5,14 @@ const app = express();
 const config = require('../config').get();
 const logger = require('./services/logger');
 const db = require('./services/mysql');
-const routes = require('./routes');
+let routes;
 const bodyParser = require('body-parser');
 const responsePromise = require('./middlewares/response-promise');
 const morgan = require('morgan');
 const cors = require('cors');
 
 db.connect().then((connection) => {
+    routes = require('./routes');
     return require('./models/sync')();
 }).then(() => {
     setUpAPI();

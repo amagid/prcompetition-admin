@@ -21,6 +21,10 @@ const Participants = module.exports = db.define('participants', {
         allowNull: false,
         defaultValue: 0
     }
+}, {
+    classMethods: {
+        getSummary
+    }
 });
 
 const Opportunities = require('./Opportunities');
@@ -30,3 +34,13 @@ Participants.belongsToMany(Opportunities, {
     foreignKey: 'p_id',
     otherKey: 'o_id'
 });
+
+function getSummary() {
+    const options = {};
+    options.attributes = [
+        "name",
+        "caseid",
+        "points"
+    ];
+    return this.constructor.prototype.findAll.call(this, options);
+}
