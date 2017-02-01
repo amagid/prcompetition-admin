@@ -20,6 +20,10 @@ const Opportunities = module.exports = db.define('opportunities', {
         type: Sequelize.DataTypes.DATE,
         allowNull: false
     }
+}, {
+    classMethods: {
+        findById
+    }
 });
 
 const Groups = require('./Groups');
@@ -34,3 +38,20 @@ Opportunities.belongsToMany(Participants, {
     foreignKey: 'o_id',
     otherKey: 'p_id'
 });
+
+function findById(id) {
+    const options = {};
+
+    options.where = {
+        id
+    };
+
+    return this.constructor.prototype.findOne.call(this, options)
+        .then(result => {
+            if (result) {
+                return result;
+            } else {
+                throw APIError(404, 'Opportunity not found.');
+            }
+        });
+}

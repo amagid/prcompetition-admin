@@ -14,4 +14,25 @@ const UploadTypes = module.exports = db.define('upload_types', {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false
     }
+}, {
+    classMethods: {
+        findById
+    }
 });
+
+function findById(id) {
+    const options = {};
+
+    options.where = {
+        id
+    };
+
+    return this.constructor.prototype.findOne.call(this, options)
+        .then(result => {
+            if (result) {
+                return result;
+            } else {
+                throw APIError(404, 'Upload Type not found.');
+            }
+        });
+}

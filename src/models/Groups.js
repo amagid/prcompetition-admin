@@ -15,4 +15,25 @@ const Groups = module.exports = db.define('groups', {
         allowNUll: false,
         defaultValue: 1
     }
+}, {
+    classMethods: {
+        findById
+    }
 });
+
+function findById(id) {
+    const options = {};
+
+    options.where = {
+        id
+    };
+
+    return this.constructor.prototype.findOne.call(this, options)
+        .then(result => {
+            if (result) {
+                return result;
+            } else {
+                throw APIError(404, 'Group not found.');
+            }
+        });
+}

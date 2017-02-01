@@ -20,6 +20,10 @@ const Uploads = module.exports = db.define('uploads', {
         type: Sequelize.DataTypes.DATE,
         allowNull: false
     }
+}, {
+    classMethods: {
+        findById
+    }
 });
 
 const Participants = require('./Participants');
@@ -37,3 +41,20 @@ Uploads.belongsTo(UploadTypes, {
 Uploads.belongsTo(Groups, {
     foreignKey: 'group_id'
 });
+
+function findById(id) {
+    const options = {};
+
+    options.where = {
+        id
+    };
+
+    return this.constructor.prototype.findOne.call(this, options)
+        .then(result => {
+            if (result) {
+                return result;
+            } else {
+                throw APIError(404, 'Upload not found.');
+            }
+        });
+}
