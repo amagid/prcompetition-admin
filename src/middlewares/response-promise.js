@@ -10,7 +10,7 @@ function attachResponsePromise(req, res, next) {
                 res.status(200).json(result);
             })
             .catch(error => {
-                logger.warn(error);
+                logger.warn(`${error.message}`);
                 res.status(error.status || error.statusCode || 500).json(error.message || 'Unknown Error');
             })
             .catch(error => {
