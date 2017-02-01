@@ -7,6 +7,7 @@ const logger = require('./services/logger');
 const db = require('./services/mysql');
 let routes;
 const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
 const responsePromise = require('./middlewares/response-promise');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -34,6 +35,7 @@ function setUpAPI() {
     app.use(bodyParser.urlencoded({
         extended: false
     }));
+    app.use(expressValidator());
     app.use(responsePromise);
     //Mount routes
     const router = express.Router();
