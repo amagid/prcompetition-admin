@@ -26,8 +26,7 @@ const Participants = module.exports = db.define('participants', {
     classMethods: {
         getSummary,
         findById
-    },
-    timestamps: false
+    }
 });
 
 const Opportunities = require('./Opportunities');

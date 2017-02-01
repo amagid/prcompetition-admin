@@ -9,7 +9,22 @@
 
     "db": {
         "name": "boilerplate",
-        "username": "user1234",
-        "password": "p@55w0rd"
+        "username": "user",
+        "password": "p@55w0rd",
+        "settings": {
+            "host": "localhost",
+            "dialect": "mysql",
+            "pool": {
+                "max": 1,
+                "min": 0,
+                "idle": 10000
+            },
+            "logging": true,
+            "paranoid": true,
+            "timestamps": true,
+            "define": {
+                "underscored": true
+            }
+        }
     }
 }
