@@ -18,4 +18,8 @@ function routes(router) {
     router.delete('/:id',
         validation(validators.validateDelete),
         (req, res) => res.promise(Opportunities.deleteOne(req.params.id)));
+    
+    router.patch('/:id',
+        validation(validators.validatePatch),
+        (req, res) => res.promise(Opportunities.update(req.params.id, req.body.updates)));
 }
