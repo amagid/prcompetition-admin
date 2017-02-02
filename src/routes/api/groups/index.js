@@ -10,4 +10,12 @@ function routes(router) {
     router.get('/:id',
         validation(validators.validateGetOne),
         (req, res) => res.promise(Groups.findById(req.params.id)));
+
+    router.post('/',
+        validation(validators.validatePost),
+        (req, res) => res.promise(Groups.create(req.body.name, req.body.multiplier)));
+    
+    router.delete('/:id',
+        validation(validators.validateDelete),
+        (req, res) => res.promise(Groups.deleteOne(req.params.id)));
 }

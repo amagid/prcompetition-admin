@@ -10,4 +10,12 @@ function routes(router) {
     router.get('/:id',
         validation(validators.validateGetOne),
         (req, res) => res.promise(UploadTypes.findById(req.params.id)));
+
+    router.post('/',
+        validation(validators.validatePost),
+        (req, res) => res.promise(UploadTypes.create(req.body.name, req.body.value)));
+    
+    router.delete('/:id',
+        validation(validators.validateDelete),
+        (req, res) => res.promise(UploadTypes.deleteOne(req.params.id)));
 }
