@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../services/mysql').connection();
+const APIError = require('../APIError');
 
 const Opportunities = module.exports = db.define('opportunities', {
     name: {
