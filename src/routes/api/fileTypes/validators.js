@@ -6,9 +6,9 @@ module.exports = {
 };
 
 function validateGetOne(input) {
-    input.check('id').notEmpty().isInt();
+    input.check('fileType').notEmpty().isInt();
 
-    input.sanitize('id').toInt();
+    input.sanitize('fileType').toInt();
 }
 
 function validatePost(input) {
@@ -19,16 +19,12 @@ function validatePost(input) {
 }
 
 function validateDelete(input) {
-    input.check('id').notEmpty().isInt();
-    
-    input.sanitize('id').toInt();
-}
+    input.check('fileType').notEmpty();}
 
 function validatePatch(input) {
-    input.check('id').notEmpty().isInt();
-    input.check('updates.name').optional();
+    input.check('fileType').notEmpty();
+    input.check('updates.fileType').optional();
     input.check('updates.value').optional().isInt();
-
-    input.sanitize('id').toInt();
+    
     input.sanitize('updates.value').toInt();
 }

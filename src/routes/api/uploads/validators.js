@@ -1,9 +1,28 @@
 module.exports = {
-    validateGetOne
+    validateGetOne,
+    validatePost,
+    validatePatch,
+    validateDelete
 };
 
-function validateGetOne(input) {
-    input.check('id').notEmpty().isInt();
+const extPattern = /[a-z0-9]+/;
 
-    input.sanitize('id').toInt();
+function validateGetOne(input) {
+    input.check('filename').notEmpty();
+    input.check('extension').notEmpty().matches(extPattern);
+}
+
+function validatePost(input) {
+    input.check('filename').notEmpty();
+    input.check('extension').notEmpty().matches(extPattern);
+}
+
+function validatePatch(input) {
+    input.check('filename').notEmpty();
+    input.check('extension').notEmpty().matches(extPattern);
+}
+
+function validateDelete(input) {
+    input.check('filename').notEmpty();
+    input.check('extension').notEmpty().matches(extPattern);
 }

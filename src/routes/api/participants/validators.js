@@ -5,28 +5,24 @@ module.exports = {
     validatePatch
 };
 
-function validateGetOne(input) {
-    input.check('id').notEmpty().isInt();
+const caseIDPattern = /[a-z]{1,3}[0-9]*/;
 
-    input.sanitize('id').toInt();
+function validateGetOne(input) {
+    input.check('caseid').notEmpty().matches(caseIDPattern);
 }
 
 function validatePost(input) {
     input.check('name').notEmpty();
-    input.check('caseid').notEmpty().matches(/[a-z]{1,3}[0-9]*/);
+    input.check('caseid').notEmpty().matches(caseIDPattern);
 }
 
 function validateDelete(input) {
-    input.check('id').notEmpty().isInt();
-    
-    input.sanitize('id').toInt();
+    input.check('caseid').notEmpty().matches(caseIDPattern);
 }
 
 function validatePatch(input) {
-    input.check('id').notEmpty().isInt();
+    input.check('caseid').notEmpty().matches(caseIDPattern);
     input.check('updates.name').optional();
-    input.check('updates.caseid').optional().matches(/[a-z]{1,3}[0-9]*/);
-
-    input.sanitize('id').toInt();
-    input.sanitize('updates.caseid').whitelist('[a-z0-9]');
+    input.check('updates.points').optional().isInt();
+    input.check('updates.caseid').optional().matches(caseIDPattern);
 }

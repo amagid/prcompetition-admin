@@ -10,19 +10,19 @@ function routes(router) {
 
     router.get('/summary', (req, res) => res.promise(Participants.getSummary()));
 
-    router.get('/:id',
+    router.get('/:caseid',
         validation(validators.validateGetOne),
-        (req, res) => res.promise(Participants.findById(req.params.id)));
+        (req, res) => res.promise(Participants.findByCaseID(req.params.caseid)));
 
     router.post('/',
         validation(validators.validatePost),
-        (req, res) => res.promise(Participants.create(req.body.name, req.body.caseid)));
+        (req, res) => res.promise(Participants.create(req.body)));
     
-    router.delete('/:id',
+    router.delete('/:caseid',
         validation(validators.validateDelete),
-        (req, res) => res.promise(Participants.deleteOne(req.params.id)));
+        (req, res) => res.promise(Participants.deleteOne(req.params.caseid)));
     
-    router.patch('/:id',
+    router.patch('/:caseid',
         validation(validators.validatePatch),
-        (req, res) => res.promise(Participants.update(req.params.id, req.body.updates)));
+        (req, res) => res.promise(Participants.update(req.params.caseid, req.body.updates)));
 }

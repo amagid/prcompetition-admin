@@ -5,21 +5,19 @@ const Opportunities = require('../../../models/Opportunities');
 module.exports = routes;
 
 function routes(router) {
-    router.get('/', (req, res) => res.promise(Opportunities.findAll()));
+    router.get('/',
+        validation(validators.validateGet), 
+        (req, res) => res.promise(Opportunities.search(req.query)));
 
-    router.get('/:id',
-        validation(validators.validateGetOne),
-        (req, res) => res.promise(Opportunities.findById(req.params.id)));
-
-    router.post('/',
+    router.post('/:opp',
         validation(validators.validatePost),
-        (req, res) => res.promise(Opportunities.create(req.body.name, req.body.value, req.body.date, req.body.group_id)));
+        (req, res) => res.promise(Opportunities.create(req.params.opp, req.body)));
     
-    router.delete('/:id',
+    router.delete('/:opp',
         validation(validators.validateDelete),
-        (req, res) => res.promise(Opportunities.deleteOne(req.params.id)));
+        (req, res) => res.promise(Opportunities.deleteOne(req.params.opp, req.body)));
     
-    router.patch('/:id',
+    router.patch('/:opp',
         validation(validators.validatePatch),
-        (req, res) => res.promise(Opportunities.update(req.params.id, req.body.updates)));
+        (req, res) => res.promise(Opportunities.update(req.params.opp, req.body.opportunity, req.body.updates)));
 }
