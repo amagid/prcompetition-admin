@@ -28,19 +28,31 @@ const Opportunities = module.exports = db.define('opportunities', {
         field: 'event',
         type: Sequelize.DataTypes.String,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        references: {
+            model: Events,
+            key: 'event'
+        }
     },
 	semester: {
         field: 'semester',
         type: Sequelize.DataTypes.Enum('spring','fall'),
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        references: {
+            model: Events,
+            key: 'semester'
+        }
     },
 	year: {
         field: 'year',
         type: Sequelize.DataTypes.Integer,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        references: {
+            model: Events,
+            key: 'year'
+        }
     }
 }, {
     classMethods: {
@@ -48,18 +60,7 @@ const Opportunities = module.exports = db.define('opportunities', {
     }
 });
 
-const Groups = require('./Groups');
-const Participants = require('./Participants');
-
-Opportunities.belongsTo(Groups, {
-    foreignKey: 'group_id'
-});
-
-Opportunities.belongsToMany(Participants, {
-    through: 'attendance',
-    foreignKey: 'opportunity',
-    otherKey: 'participant'
-});
+const Events = require('./Events');
 
 function findByName(opportunity) {
     const options = {};

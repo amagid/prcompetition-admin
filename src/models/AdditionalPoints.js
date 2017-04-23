@@ -27,22 +27,39 @@ const AdditionalPoints = module.exports = db.define('additional_points', {
         field: 'recipient',
         type: Sequelize.DataTypes.String,
         allowNull: false,
-        FOREIGN_KEY
+        references: {
+            model: Participants,
+            key: 'caseid'
+        }
     },
 	event: {
         field: 'event',
         type: Sequelize.DataTypes.String,
         allowNull: true,
-        FOREIGN_KEY
+        references: {
+            model: Events,
+            key: 'event'
+        }
     },
 	semester: {
         field: 'semester',
         type: Sequelize.DataTypes.Enum('spring','fall'),
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: Events,
+            key: 'semester'
+        }
     },
 	year: {
         field: 'year',
         type: Sequelize.DataTypes.Integer,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: Events,
+            key: 'year'
+        }
     }
 });
+
+const Participants = require('./Participants');
+const Events = require('./Events');

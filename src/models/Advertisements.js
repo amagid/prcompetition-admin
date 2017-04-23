@@ -30,7 +30,10 @@ const Advertisements = module.exports = db.define('advertisements', {
         field: 'creator',
         type: Sequelize.DataTypes.String,
         allowNull: true,
-        FOREIGN_KEY
+        references:  {
+            model: Participants,
+            key: 'caseid'
+        }
     },
 	comment: {
         field: 'comment',
@@ -66,13 +69,19 @@ const Advertisements = module.exports = db.define('advertisements', {
         field: 'seller',
         type: Sequelize.DataTypes.String,
         allowNull: true,
-        FOREIGN_KEY
+        references: {
+            model: Participants,
+            key: 'caseid'
+        }
     },
 	ad_type: {
         field: 'ad_type',
         type: Sequelize.DataTypes.String,
         allowNull: true,
-        FOREIGN_KEY
+        references: {
+            model: AdTypes,
+            key: 'ad_type'
+        }
     },
 	buyer_type: {
         field: 'buyer_type',
@@ -80,3 +89,6 @@ const Advertisements = module.exports = db.define('advertisements', {
         allowNull: true,
     }
 });
+
+const Participants = require('./Participants');
+const AdTypes = require('./AdTypes');

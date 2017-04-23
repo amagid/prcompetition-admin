@@ -6,28 +6,48 @@ const Attendance = module.exports = db.define('attendance', {
         field: 'participant',
         type: Sequelize.DataTypes.String,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        references: {
+            model: Participants,
+            key: 'caseid'
+        }
     },
 	opportunity: {
         field: 'opportunity',
         type: Sequelize.DataTypes.String,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        references: {
+            model: Opportunities,
+            key: 'opportunity'
+        }
     },
 	event: {
         field: 'event',
         type: Sequelize.DataTypes.String,
-        allowNull: true
+        allowNull: true,
+        references: {
+            model: Opportunities,
+            key: 'event'
+        }
     },
 	semester: {
         field: 'semester',
         type: Sequelize.DataTypes.Enum('spring','fall'),
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: Opportunities,
+            key: 'semester'
+        }
     },
 	year: {
         field: 'year',
         type: Sequelize.DataTypes.Integer,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: Opportunities,
+            key: 'year'
+        }
     },
 	date: {
         field: 'date',
@@ -44,6 +64,9 @@ const Attendance = module.exports = db.define('attendance', {
         findByIds
     }
 });
+
+const Participants = require('./Participants');
+const Opportunities = require('./Opportunities');
 
 function findByIds(submitter, opportunity) {
     const options = {};

@@ -27,14 +27,6 @@ const Participants = module.exports = db.define('participants', {
     }
 });
 
-const Opportunities = require('./Opportunities');
-
-Participants.belongsToMany(Opportunities, {
-    through: 'attendance',
-    foreignKey: 'p_id',
-    otherKey: 'o_id'
-});
-
 function getSummary() {
     const options = {};
     options.attributes = [

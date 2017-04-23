@@ -34,29 +34,46 @@ const Uploads = module.exports = db.define('uploads', {
         field: 'file_type',
         type: Sequelize.DataTypes.String,
         allowNull: false,
-        FOREIGN_KEY
+        references: {
+            model: FileTypes,
+            key: 'file_type'
+        }
     },
 	submitter: {
         field: 'submitter',
         type: Sequelize.DataTypes.String,
         allowNull: true,
-        FOREIGN_KEY
+        references: {
+            model: Participants,
+            key: 'caseid'
+        }
     },
 	event: {
         field: 'event',
         type: Sequelize.DataTypes.String,
         allowNull: true,
-        FOREIGN_KEY
+        references: {
+            model: Events,
+            key: 'event'
+        }
     },
 	semester: {
         field: 'semester',
         type: Sequelize.DataTypes.Enum('spring','fall'),
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: Events,
+            key: 'semester'
+        }
     },
 	year: {
         field: 'year',
         type: Sequelize.DataTypes.Integer,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: Events,
+            key: 'year'
+        }
     }
 }, {
     classMethods: {
@@ -64,21 +81,9 @@ const Uploads = module.exports = db.define('uploads', {
     }
 });
 
+const FileTypes = require('./FileTypes');
 const Participants = require('./Participants');
-const UploadTypes = require('./UploadTypes');
-const Groups = require('./Groups');
-
-Uploads.belongsTo(Participants, {
-    foreignKey: 'p_id'
-});
-
-Uploads.belongsTo(UploadTypes, {
-    foreignKey: 'type_id'
-});
-
-Uploads.belongsTo(Groups, {
-    foreignKey: 'group_id'
-});
+const Events = require('./Events');
 
 function findByFileInfo(filename, extension) {
     const options = {};
