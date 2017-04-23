@@ -2,22 +2,60 @@ const Sequelize = require('sequelize');
 const db = require('../services/mysql').connection();
 
 const Uploads = module.exports = db.define('uploads', {
-    filename: {
+	filename: {
         field: 'filename',
-        type: Sequelize.DataTypes.STRING,
+        type: Sequelize.DataTypes.String,
         allowNull: false,
-        unique: true
+        primaryKey: true
     },
-
-    used: {
+	extension: {
+        field: 'extension',
+        type: Sequelize.DataTypes.String,
+        allowNull: false,
+        primaryKey: true
+    },
+	date: {
+        field: 'date',
+        type: Sequelize.DataTypes.Date,
+        allowNull: true
+    },
+	used: {
         field: 'used',
-        type: Sequelize.DataTypes.BOOLEAN,
+        type: Sequelize.DataTypes.Integer,
+        allowNull: false,
+        defaultValue: 0
+    },
+	content: {
+        field: 'content',
+        type: Sequelize.DataTypes.String,
         allowNull: false
     },
-
-    date: {
-        field: 'date',
-        type: Sequelize.DataTypes.DATE,
+	file_type: {
+        field: 'file_type',
+        type: Sequelize.DataTypes.String,
+        allowNull: false,
+        FOREIGN_KEY
+    },
+	submitter: {
+        field: 'submitter',
+        type: Sequelize.DataTypes.String,
+        allowNull: true,
+        FOREIGN_KEY
+    },
+	event: {
+        field: 'event',
+        type: Sequelize.DataTypes.String,
+        allowNull: true,
+        FOREIGN_KEY
+    },
+	semester: {
+        field: 'semester',
+        type: Sequelize.DataTypes.Enum('spring','fall'),
+        allowNull: false
+    },
+	year: {
+        field: 'year',
+        type: Sequelize.DataTypes.Integer,
         allowNull: false
     }
 }, {
@@ -42,11 +80,12 @@ Uploads.belongsTo(Groups, {
     foreignKey: 'group_id'
 });
 
-function findById(id) {
+function findByFileInfo(filename, extension) {
     const options = {};
 
     options.where = {
-        id
+        filename,
+        extension
     };
 
     return this.constructor.prototype.findOne.call(this, options)

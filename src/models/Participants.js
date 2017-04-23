@@ -3,22 +3,20 @@ const db = require('../services/mysql').connection();
 const APIError = require('../APIError');
 
 const Participants = module.exports = db.define('participants', {
-    name: {
+	caseid: {
+        field: 'caseid',
+        type: Sequelize.DataTypes.String,
+        allowNull: false,
+        primaryKey: true
+    },
+	name: {
         field: 'name',
-        type: Sequelize.DataTypes.STRING,
+        type: Sequelize.DataTypes.String,
         allowNull: false
     },
-
-    caseid: {
-        field: 'caseid',
-        type: Sequelize.DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    },
-
-    points: {
+	points: {
         field: 'points',
-        type: Sequelize.DataTypes.INTEGER,
+        type: Sequelize.DataTypes.Integer,
         allowNull: false,
         defaultValue: 0
     }
@@ -47,11 +45,11 @@ function getSummary() {
     return this.constructor.prototype.findAll.call(this, options);
 }
 
-function findById(id) {
+function findByCaseID(caseid) {
     const options = {};
 
     options.where = {
-        id
+        caseid
     };
 
     return this.constructor.prototype.findOne.call(this, options)

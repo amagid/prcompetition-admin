@@ -2,17 +2,16 @@ const Sequelize = require('sequelize');
 const db = require('../services/mysql').connection();
 const APIError = require('../APIError');
 
-const UploadTypes = module.exports = db.define('upload_types', {
-    name: {
-        field: 'name',
-        type: Sequelize.DataTypes.STRING,
+const FileTypes = module.exports = db.define('file_types', {
+	file_type: {
+        field: 'file_type',
+        type: Sequelize.DataTypes.String,
         allowNull: false,
-        unique: true
+        primaryKey: true
     },
-
-    value: {
+	value: {
         field: 'value',
-        type: Sequelize.DataTypes.INTEGER,
+        type: Sequelize.DataTypes.Integer,
         allowNull: false
     }
 }, {
@@ -21,11 +20,11 @@ const UploadTypes = module.exports = db.define('upload_types', {
     }
 });
 
-function findById(id) {
+function findByName(file_type) {
     const options = {};
 
     options.where = {
-        id
+        file_type
     };
 
     return this.constructor.prototype.findOne.call(this, options)

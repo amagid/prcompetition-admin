@@ -3,23 +3,44 @@ const db = require('../services/mysql').connection();
 const APIError = require('../APIError');
 
 const Opportunities = module.exports = db.define('opportunities', {
-    name: {
-        field: 'name',
-        type: Sequelize.DataTypes.STRING,
+	opportunity: {
+        field: 'opportunity',
+        type: Sequelize.DataTypes.String,
         allowNull: false,
-        unique: true
+        primaryKey: true
     },
-
-    value: {
+	value: {
         field: 'value',
-        type: Sequelize.DataTypes.STRING,
+        type: Sequelize.DataTypes.Integer,
         allowNull: false
     },
-
-    date: {
+	date: {
         field: 'date',
-        type: Sequelize.DataTypes.DATE,
+        type: Sequelize.DataTypes.Date,
         allowNull: false
+    },
+	description: {
+        field: 'description',
+        type: Sequelize.DataTypes.String,
+        allowNull: true
+    },
+	event: {
+        field: 'event',
+        type: Sequelize.DataTypes.String,
+        allowNull: false,
+        primaryKey: true
+    },
+	semester: {
+        field: 'semester',
+        type: Sequelize.DataTypes.Enum('spring','fall'),
+        allowNull: false,
+        primaryKey: true
+    },
+	year: {
+        field: 'year',
+        type: Sequelize.DataTypes.Integer,
+        allowNull: false,
+        primaryKey: true
     }
 }, {
     classMethods: {
@@ -36,15 +57,15 @@ Opportunities.belongsTo(Groups, {
 
 Opportunities.belongsToMany(Participants, {
     through: 'attendance',
-    foreignKey: 'o_id',
-    otherKey: 'p_id'
+    foreignKey: 'opportunity',
+    otherKey: 'participant'
 });
 
-function findById(id) {
+function findByName(opportunity) {
     const options = {};
 
     options.where = {
-        id
+        opportunity
     };
 
     return this.constructor.prototype.findOne.call(this, options)
