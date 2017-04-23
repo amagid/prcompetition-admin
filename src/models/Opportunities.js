@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
-const db = require('../services/mysql').connection();
+const mysql = require('../services/mysql');
+const db = mysql.connection();
 const APIError = require('../APIError');
 
 const Events = require('./Events');
@@ -56,4 +57,39 @@ const Opportunities = module.exports = db.define('opportunities', {
             key: 'year'
         }
     }
+}, {
+    classMethods: {
+        addAttendance,
+        checkAttendance,
+        getAttendance,
+        removeAttendance      
+    }
 });
+
+function addAttendance(data) {
+    const {opp, event, semester, year} = data;
+
+    const queryString = ``;
+    return mysql.executeQuery(queryString);
+}
+
+function checkAttendance(caseid, data) {
+    const {opp, event, semester, year} = data;
+
+    const queryString = ``;
+    return mysql.executeQuery(queryString);
+}
+
+function getAttendance(data) {
+    const {opp, event, semester, year} = data;
+
+    const queryString = ``;
+    return mysql.executeQuery(queryString);
+}
+
+function removeAttendance(data) {
+    const {opp, event, semester, year} = data;
+
+    const queryString = ``;
+    return mysql.executeQuery(queryString);
+}

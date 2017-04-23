@@ -4,7 +4,8 @@ const logger = require('./logger');
 
 module.exports = {
     connect,
-    connection
+    connection,
+    executeQuery
 };
 
 let _connection;
@@ -29,4 +30,10 @@ function connect(force = false) {
 
 function connection() {
     return _connection;
+}
+
+function executeQuery(queryString) {
+    return _connection.query(queryString).then(result => {
+        return result[0];
+    });
 }

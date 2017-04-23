@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
-const db = require('../services/mysql').connection();
+const mysql = require('../services/mysql');
+const db = mysql.connection();
 const APIError = require('../APIError');
 
 const Participants = module.exports = db.define('participants', {
@@ -30,7 +31,7 @@ const Participants = module.exports = db.define('participants', {
 
 function getSummary() {
     const queryString = "SELECT caseid, name, points FROM participants";
-    return _executeQuery(queryString);
+    return mysql.executeQuery(queryString);
 }
 
 function recalculateOne(caseid) {
@@ -52,7 +53,7 @@ function recalculateOne(caseid) {
 
     (SELECT p.caseid, (o.value * e.multiplier) AS "points" FROM participants p INNER JOIN attendance a ON p.caseid=a.participant AND p.caseid="${caseid}" INNER JOIN opportunities o ON o.opportunity=a.opportunity INNER JOIN events e ON o.event=e.event AND o.semester=e.semester AND o.year=e.year)) AS allpoints GROUP BY caseid) AS newpoints ON oldpoints.caseid=newpoints.caseid SET oldpoints.points=newpoints.points WHERE oldpoints.caseid="${caseid}";`;
 
-    return _executeQuery(queryString);
+    return mysql.executeQuery(queryString);
 }
 
 function recalculateAll() {
@@ -74,12 +75,5 @@ function recalculateAll() {
 
     (SELECT p.caseid, (o.value * e.multiplier) AS "points" FROM participants p INNER JOIN attendance a ON p.caseid=a.participant INNER JOIN opportunities o ON o.opportunity=a.opportunity INNER JOIN events e ON o.event=e.event AND o.semester=e.semester AND o.year=e.year)) AS allpoints GROUP BY caseid) AS newpoints ON oldpoints.caseid=newpoints.caseid SET oldpoints.points=newpoints.points;`;
     
-    return _executeQuery(queryString);
-}
-
-//Not sure if this process is accurate for all requests.
-function _executeQuery(queryString) {
-    return db.query(queryString).then(result => {
-        return result[0];
-    });
+    return mysql.executeQuery(queryString);
 }
