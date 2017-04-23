@@ -21,15 +21,15 @@ function routes(router) {
         validation(validators.validatePatch),
         (req, res) => res.promise(Opportunities.update(req.body.opportunity, req.body.updates)));
 
-    router.post('/:opp/attendance',
-        (req, res) => res.promise(Opportunities.addAttendance(req.body)));
+    router.post('/:opp/attendance/:caseid',
+        (req, res) => res.promise(Opportunities.addAttendance(req.params.caseid, req.body)));
 
     router.get('/:opp/attendance',
-        (req, res) => res.promise(Opportunities.getAttendance(req.body)));
+        (req, res) => res.promise(Opportunities.getAttendance(req.query)));
 
     router.get('/:opp/attendance/:caseid',
-        (req, res) => res.promise(Opportunities.checkAttendance(req.params.caseid, req.body)));
+        (req, res) => res.promise(Opportunities.checkAttendance(req.params.caseid, req.query)));
 
-    router.delete('/:opp/attendance',
-        (req, res) => res.promise(Opportunities.removeAttendance(req.body)));
+    router.delete('/:opp/attendance/:caseid',
+        (req, res) => res.promise(Opportunities.removeAttendance(req.params.caseid, req.body)));
 }
