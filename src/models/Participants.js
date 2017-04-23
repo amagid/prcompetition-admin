@@ -20,6 +20,12 @@ const Participants = module.exports = db.define('participants', {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 0
+    },
+    active: {
+        field: 'active',
+        type: Sequelize.DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: 0
     }
 }, {
     classMethods: {
@@ -30,7 +36,7 @@ const Participants = module.exports = db.define('participants', {
 });
 
 function getSummary() {
-    const queryString = "SELECT caseid, name, points FROM participants";
+    let queryString = "SELECT caseid, name, points FROM participants WHERE active=1";
     return mysql.executeQuery(queryString);
 }
 
