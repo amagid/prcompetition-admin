@@ -1,17 +1,362 @@
+<!doctype html>
 <html>
 
 <head>
-    <link rel="stylesheet" href="/css" />
+    <!--Lock Page-->
+    <script src="http://os_extranet_files_test.s3.amazonaws.com/37248_77592_lock.js" type="text/javascript"></script>
+    <!--Un-comment this script file to put the site in maintenance mode
+<script src="http://os_extranet_files_test.s3.amazonaws.com/37248_86295_maintenance.js" type="text/javascript"></script> -->
+
+<!--LOAD jQuery API-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!--LOAD Footlighters General Files-->
+    <script src="http://os_extranet_files_test.s3.amazonaws.com/37248_78081_script.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/CSS" href="http://os_extranet_files_test.s3.amazonaws.com/37248_78078_style.css" />
+    <link rel="stylesheet" type="text/CSS" href="/css"/>
+    <script src="/js" type="text/javascript"></script>
+    <!--General META info-->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Hooks for Page-specific info. Page-specific keywords and descriptions will be appended to these keywords and description.-->
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!--NO CACHING-->
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="cache-control" content="must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
 </head>
 
 <body>
-    
+    <div class="page">
+        <div class="topspacer"></div>
+        <div class="topbar">
+            <div class="topcontent">
+                <div class="logobox">
+                    <a href="http://usg.case.edu/org/footlighters/home">
+                        <div class="logo"></div>
+                    </a>
+                </div>
+                <div class="navbutton mobile"></div>
+                <div class="top_right">
+                    <div class="minibar">
+                        <a href="http://usg.case.edu/org/footlighters/donate" data-page="donate">
+                            <div class="minilink">
+                                <div class="minitext bolder">Donate!</div>
+                            </div>
+                        </a>
+                        <a href="http://usg.case.edu/org/footlighters/past" data-page="past">
+                            <div class="minilink">
+                                <div class="minitext">Past Shows</div>
+                            </div>
+                        </a>
+                        <a href="http://usg.case.edu/org/footlighters/about" data-page="about">
+                            <div class="minilink">
+                                <div class="minitext">About</div>
+                            </div>
+                        </a>
+                        <a href="http://case.universitytickets.com/user_pages/event_listings.asp" class="tickets" target="_blank">
+                            <div class="minilink buy">
+                                <div class="minitext">BUY TICKETS</div>
+                            </div>
+                        </a>
+                        <a href="https://docs.google.com/a/case.edu/forms/d/1ZJkDt0yi81i5dZVulBLA-QzODxV_C2fS-LN86Xgcrs8/viewform" class="audition"
+                            target="_blank">
+                            <div class="minilink buy">
+                                <div class="minitext">AUDITION</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="navbar">
+                        <a href="http://usg.case.edu/org/footlighters/PRCompetition" data-page="competition">
+                            <div class="navlink">
+                                <div class="navtext noborder">PR Competition</div>
+                            </div>
+                        </a>
+                        <a href="http://usg.case.edu/org/footlighters/members" data-page="members">
+                            <div class="navlink">
+                                <div class="navtext">Members</div>
+                            </div>
+                        </a>
+                        <a href="http://usg.case.edu/org/footlighters/slebs" data-page="slebs">
+                            <div class="navlink">
+                                <div class="navtext">SLEBS</div>
+                            </div>
+                        </a>
+                        <a href="http://usg.case.edu/org/footlighters/current" data-page="current">
+                            <div class="navlink">
+                                <div class="navtext">Current Show</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END OF TOPBAR-->
+        <div id="os_content">
+            <!--ADMIN PAGE, SHOULD NOT BE INDEXED-->
+            <meta name="robots" content="noindex" />
+            <div class="page_info" data-title="Admin" data-keywords="" data-description="" data-page="admin"></div>
+            <script src="http://os_extranet_files_test.s3.amazonaws.com/37248_87187_adminJS.js" type="text/javascript"></script>
+            <script src="http://os_extranet_files_test.s3.amazonaws.com/37248_78079_accordionJS.js" type="text/javascript"></script>
+            <link rel="stylesheet" type="text/CSS" href="http://os_extranet_files_test.s3.amazonaws.com/37248_87184_adminCSS.css" />
+            <div class="section_container">
+                <div class="section_divider">
+                    <div class="section_label bold">Footlighters PR Competition Admin System</div>
+                    <div class="section_line"></div>
+                </div>
+            </div>
+            <div class="section_blurb">Use this page to track and maintain the Footlighters PR Competition.<br/><br/>
+                <span class="bold">Any questions regarding this page or the competition should be directed to Footies Publicity Manager Aaron, <a href="mailto:ahm64@case.edu" class="link_default">ahm64@case.edu</a>.</span></div>
+            <!--
 
+		<div class="spacer" height="20px;"></div>
 
+		<div class="accordion">
 
+			<div class="acc_top closed">
+
+				<div class="acc_closed"></div>
+
+				<div class="acc_open"></div>
+
+				<div class="acc_number"></div>
+
+				<div class="acc_title">New News Entry</div>
+
+				<div class="acc_title acc_details">For Home and Members pages</div>
+
+			</div>
+
+			<div class="acc_bottom" data-clickable="false">
+
+				
+				
+				
+				
+
+			</div>
+
+		</div>
+-->
+            <div class="spacer"></div>
+            <div class="accordion">
+                <div class="acc_top closed">
+                    <div class="acc_closed"></div>
+                    <div class="acc_open"></div>
+                    <div class="acc_number"></div>
+                    <div class="acc_title">New Past Show</div>
+                    <div class="acc_title acc_details">For Archive</div>
+                </div>
+                <div class="acc_bottom" data-clickable="false" id="show_form">
+                    <div class="section_container">
+                        <div class="section_divider">
+                            <div class="section_label bold">Basic Info</div>
+                            <div class="section_line"></div>
+                        </div>
+                    </div>
+                    <div class="admin_input left" style="width:75%;">
+                        <input type="text" id="title" placeholder="Show Name" />
+                    </div>
+                    <div class="admin_input right" style="width:25%;">
+                        <input type="text" id="semester" placeholder="Semester & Year" />
+                    </div>
+                    <div class="spacer" style="height:20px;"></div>
+                    <div class="admin_input_group date">
+                        <div class="admin_input top bottom date" style="width:100%;">
+                            <input type="text" placeholder="Show Date (Monday, February 30th 2037 at 13:32pm)" />
+                        </div>
+                        <div class="admin_input_change">
+                            <div class="admin_input_add">
+                                <img class="admin_plus" src="http://os_extranet_images.s3.amazonaws.com/359216_original.png" />
+                            </div>
+                            <div class="admin_input_remove">
+                                <img class="admin_plus" src="http://os_extranet_images.s3.amazonaws.com/359219_original.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer" style="height:20px;"></div>
+                    <textarea id="synopsis" rows="6" placeholder="Show Synopsis (Preferably 3-5 Sentences)"></textarea>
+                    <div class="spacer" style="height:20px;"></div>
+                    <div class="section_container">
+                        <div class="section_divider">
+                            <div class="section_label bold">Production Staff</div>
+                        </div>
+                    </div>
+                    <div class="admin_input_group staff">
+                        <div class="admin_input_row top bottom">
+                            <div class="admin_input staff position" style="width:50%;">
+                                <input type="text" placeholder="Position (Director)" />
+                            </div>
+                            <div class="admin_input staff name" style="width:50%;">
+                                <input type="text" placeholder="Name (Beth Magid)" />
+                            </div>
+                        </div>
+                        <div class="admin_input_change">
+                            <div class="admin_input_add">
+                                <img class="admin_plus" src="http://os_extranet_images.s3.amazonaws.com/359216_original.png" />
+                            </div>
+                            <div class="admin_input_remove">
+                                <img class="admin_plus" src="http://os_extranet_images.s3.amazonaws.com/359219_original.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer" style="height:20px;"></div>
+                    <div class="section_container">
+                        <div class="section_divider">
+                            <div class="section_label bold">Cast</div>
+                        </div>
+                    </div>
+                    <div class="admin_input_group cast">
+                        <div class="admin_input_row top bottom">
+                            <div class="admin_input cast position" style="width:50%;">
+                                <input type="text" placeholder="Part (Evil Ed)" />
+                            </div>
+                            <div class="admin_input cast name" style="width:50%;">
+                                <input type="text" placeholder="Name (Aaron Magid)" />
+                            </div>
+                        </div>
+                        <div class="admin_input_change">
+                            <div class="admin_input_add">
+                                <img class="admin_plus" src="http://os_extranet_images.s3.amazonaws.com/359216_original.png" />
+                            </div>
+                            <div class="admin_input_remove">
+                                <img class="admin_plus" src="http://os_extranet_images.s3.amazonaws.com/359219_original.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer" style="height:20px;"></div>
+                    <div class="section_container">
+                        <div class="section_divider">
+                            <div class="section_label bold">Pit</div>
+                        </div>
+                    </div>
+                    <div class="admin_input_group pit">
+                        <div class="admin_input_row top bottom">
+                            <div class="admin_input pit position" style="width:50%;">
+                                <input type="text" placeholder="Position (Pit Director)" />
+                            </div>
+                            <div class="admin_input pit name" style="width:50%;">
+                                <input type="text" placeholder="Name (Evan Slomovitz)" />
+                            </div>
+                        </div>
+                        <div class="admin_input_change">
+                            <div class="admin_input_add">
+                                <img class="admin_plus" src="http://os_extranet_images.s3.amazonaws.com/359216_original.png" />
+                            </div>
+                            <div class="admin_input_remove">
+                                <img class="admin_plus" src="http://os_extranet_images.s3.amazonaws.com/359219_original.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer" style="height:20px;"></div>
+                    <div class="form_button blue" id="generate">Generate!</div>
+                    <div class="form_button red" id="clear">Clear Form</div>
+                    <div class="spacer" style="height:20px;"></div>
+                    <div class="hidden" id="output_container">
+                        <div class="section_container">
+                            <div class="section_divider">
+                                <div class="section_label bold">Code (HTML Format)</div>
+                            </div>
+                        </div>
+                        <pre><code class="admin_input all" id="output_html" style="width:95%;"></code></pre>
+                        <div class="section_container">
+                            <div class="section_divider">
+                                <div class="section_label bold">Code (JSON Format)</div>
+                            </div>
+                        </div>
+                        <pre><code class="admin_input all" id="output_json" style="width:95%;"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="event_popup_box_wrapper" style="display:none;">
+            <div id="event_popup_box" class="profile_box">
+            </div>
+        </div>
+        <div id="day_popup_box_wrapper" style="display:none;">
+            <div id="day_popup_box" class="profile_box">
+            </div>
+        </div>
+    </div>
+    <div class="m_navbar_close mobile"></div>
+    <div class="m_navbar mobile">
+        <a href="https://docs.google.com/a/case.edu/forms/d/1ZJkDt0yi81i5dZVulBLA-QzODxV_C2fS-LN86Xgcrs8/viewform" class="audition"
+            target="_blank">
+            <div class="m_navlink buy">
+                <div class="m_navtext">AUDITION SIGN UPS</div>
+            </div>
+        </a>
+        <a href="http://case.universitytickets.com/user_pages/category.asp?id=39" class="tickets" target="_blank">
+            <div class="m_navlink buy">
+                <div class="m_navtext">BUY TICKETS</div>
+            </div>
+        </a>
+        <a href="http://usg.case.edu/org/footlighters/donate" data-page="donate">
+            <div class="m_navlink donate">
+                <div class="m_navtext">Donate</div>
+            </div>
+        </a>
+        <a href="http://usg.case.edu/org/footlighters/home" data-page="home">
+            <div class="m_navlink">
+                <div class="m_navtext">Home</div>
+            </div>
+        </a>
+        <a href="http://usg.case.edu/org/footlighters/about" data-page="about">
+            <div class="m_navlink">
+                <div class="m_navtext">About</div>
+            </div>
+        </a>
+        <a href="http://usg.case.edu/org/footlighters/past" data-page="past">
+            <div class="m_navlink">
+                <div class="m_navtext">Past Shows</div>
+            </div>
+        </a>
+        <a href="http://usg.case.edu/org/footlighters/current" data-page="current">
+            <div class="m_navlink">
+                <div class="m_navtext">Current Show</div>
+            </div>
+        </a>
+        <a href="http://usg.case.edu/org/footlighters/slebs" data-page="slebs">
+            <div class="m_navlink">
+                <div class="m_navtext">SLEBS</div>
+            </div>
+        </a>
+        <a href="http://usg.case.edu/org/footlighters/members" data-page="members">
+            <div class="m_navlink">
+                <div class="m_navtext">Members</div>
+            </div>
+        </a>
+        <a href="http://usg.case.edu/org/footlighters/PRCompetition" data-page="competition">
+            <div class="m_navlink">
+                <div class="m_navtext">PR Competition</div>
+            </div>
+        </a>
+        <!--
+		<a href="http://usg.case.edu/org/footlighters/get_involved" data-page="get_involved">
+
+			<div class="m_navlink">
+
+				<div class="m_navtext">Get Involved</div>
+
+			</div>
+
+		</a>
+-->
+    </div>
+    <script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+    <script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-1975314-11");
+		pageTracker._setDomainName(".orgsync.com");
+		pageTracker._trackPageview();
+		} catch(err) {}</script>
 </body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js" type="text/javascript"></script>
+<script src="http://os_extranet_files_test.s3.amazonaws.com/37248_86296_set_page_info.js" type="text/javascript"></script>
+<!--Gathers info for page based on ".page_info" div-->
 
 </html>
