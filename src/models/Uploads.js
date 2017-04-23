@@ -1,38 +1,42 @@
 const Sequelize = require('sequelize');
 const db = require('../services/mysql').connection();
 
+const FileTypes = require('./FileTypes');
+const Participants = require('./Participants');
+const Events = require('./Events');
+
 const Uploads = module.exports = db.define('uploads', {
 	filename: {
         field: 'filename',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
         primaryKey: true
     },
 	extension: {
         field: 'extension',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
         primaryKey: true
     },
 	date: {
         field: 'date',
-        type: Sequelize.DataTypes.Date,
+        type: Sequelize.DataTypes.DATE,
         allowNull: true
     },
 	used: {
         field: 'used',
-        type: Sequelize.DataTypes.Integer,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 0
     },
 	content: {
         field: 'content',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false
     },
 	file_type: {
         field: 'file_type',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
         references: {
             model: FileTypes,
@@ -41,7 +45,7 @@ const Uploads = module.exports = db.define('uploads', {
     },
 	submitter: {
         field: 'submitter',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: true,
         references: {
             model: Participants,
@@ -50,7 +54,7 @@ const Uploads = module.exports = db.define('uploads', {
     },
 	event: {
         field: 'event',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: true,
         references: {
             model: Events,
@@ -59,7 +63,7 @@ const Uploads = module.exports = db.define('uploads', {
     },
 	semester: {
         field: 'semester',
-        type: Sequelize.DataTypes.Enum('spring','fall'),
+        type: Sequelize.DataTypes.ENUM('spring','fall'),
         allowNull: false,
         references: {
             model: Events,
@@ -68,7 +72,7 @@ const Uploads = module.exports = db.define('uploads', {
     },
 	year: {
         field: 'year',
-        type: Sequelize.DataTypes.Integer,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         references: {
             model: Events,
@@ -76,7 +80,3 @@ const Uploads = module.exports = db.define('uploads', {
         }
     }
 });
-
-const FileTypes = require('./FileTypes');
-const Participants = require('./Participants');
-const Events = require('./Events');

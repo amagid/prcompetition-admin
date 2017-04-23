@@ -4,25 +4,25 @@ const db = require('../services/mysql').connection();
 const Events = module.exports = db.define('events', {
 	event: {
         field: 'event',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
         primaryKey: true
     },
 	semester: {
         field: 'semester',
-        type: Sequelize.DataTypes.Enum('spring','fall'),
+        type: Sequelize.DataTypes.ENUM('spring','fall'),
         allowNull: false,
         primaryKey: true
     },
 	year: {
         field: 'year',
-        type: Sequelize.DataTypes.Integer,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true
     },
 	multiplier: {
         field: 'multiplier',
-        type: Sequelize.DataTypes.Integer,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 1
     }

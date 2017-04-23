@@ -1,31 +1,34 @@
 const Sequelize = require('sequelize');
 const db = require('../services/mysql').connection();
 
+const Participants = require('./Participants');
+const Events = require('./Events');
+
 const AdditionalPoints = module.exports = db.define('additional_points', {
 	title: {
         field: 'title',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
         primaryKey: true
     },
 	description: {
         field: 'title',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: true
     },
 	date: {
         field: 'date',
-        type: Sequelize.DataTypes.Date,
+        type: Sequelize.DataTypes.DATE,
         allowNull: true
     },
 	value: {
         field: 'value',
-        type: Sequelize.DataTypes.Integer,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false
     },
 	recipient: {
         field: 'recipient',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
         references: {
             model: Participants,
@@ -34,7 +37,7 @@ const AdditionalPoints = module.exports = db.define('additional_points', {
     },
 	event: {
         field: 'event',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: true,
         references: {
             model: Events,
@@ -43,7 +46,7 @@ const AdditionalPoints = module.exports = db.define('additional_points', {
     },
 	semester: {
         field: 'semester',
-        type: Sequelize.DataTypes.Enum('spring','fall'),
+        type: Sequelize.DataTypes.ENUM('spring','fall'),
         allowNull: false,
         references: {
             model: Events,
@@ -52,7 +55,7 @@ const AdditionalPoints = module.exports = db.define('additional_points', {
     },
 	year: {
         field: 'year',
-        type: Sequelize.DataTypes.Integer,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         references: {
             model: Events,
@@ -60,6 +63,3 @@ const AdditionalPoints = module.exports = db.define('additional_points', {
         }
     }
 });
-
-const Participants = require('./Participants');
-const Events = require('./Events');

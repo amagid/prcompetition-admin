@@ -2,31 +2,33 @@ const Sequelize = require('sequelize');
 const db = require('../services/mysql').connection();
 const APIError = require('../APIError');
 
+const Events = require('./Events');
+
 const Opportunities = module.exports = db.define('opportunities', {
 	opportunity: {
         field: 'opportunity',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
         primaryKey: true
     },
 	value: {
         field: 'value',
-        type: Sequelize.DataTypes.Integer,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false
     },
 	date: {
         field: 'date',
-        type: Sequelize.DataTypes.Date,
+        type: Sequelize.DataTypes.DATE,
         allowNull: false
     },
 	description: {
         field: 'description',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: true
     },
 	event: {
         field: 'event',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
         primaryKey: true,
         references: {
@@ -36,7 +38,7 @@ const Opportunities = module.exports = db.define('opportunities', {
     },
 	semester: {
         field: 'semester',
-        type: Sequelize.DataTypes.Enum('spring','fall'),
+        type: Sequelize.DataTypes.ENUM('spring','fall'),
         allowNull: false,
         primaryKey: true,
         references: {
@@ -46,7 +48,7 @@ const Opportunities = module.exports = db.define('opportunities', {
     },
 	year: {
         field: 'year',
-        type: Sequelize.DataTypes.Integer,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         references: {
@@ -55,5 +57,3 @@ const Opportunities = module.exports = db.define('opportunities', {
         }
     }
 });
-
-const Events = require('./Events');

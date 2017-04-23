@@ -1,10 +1,13 @@
 const Sequelize = require('sequelize');
 const db = require('../services/mysql').connection();
 
+const Participants = require('./Participants');
+const Opportunities = require('./Opportunities');
+
 const Attendance = module.exports = db.define('attendance', {
 	participant: {
         field: 'participant',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
         primaryKey: true,
         references: {
@@ -14,7 +17,7 @@ const Attendance = module.exports = db.define('attendance', {
     },
 	opportunity: {
         field: 'opportunity',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
         primaryKey: true,
         references: {
@@ -24,7 +27,7 @@ const Attendance = module.exports = db.define('attendance', {
     },
 	event: {
         field: 'event',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: true,
         references: {
             model: Opportunities,
@@ -33,7 +36,7 @@ const Attendance = module.exports = db.define('attendance', {
     },
 	semester: {
         field: 'semester',
-        type: Sequelize.DataTypes.Enum('spring','fall'),
+        type: Sequelize.DataTypes.ENUM('spring','fall'),
         allowNull: false,
         references: {
             model: Opportunities,
@@ -42,7 +45,7 @@ const Attendance = module.exports = db.define('attendance', {
     },
 	year: {
         field: 'year',
-        type: Sequelize.DataTypes.Integer,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         references: {
             model: Opportunities,
@@ -51,15 +54,12 @@ const Attendance = module.exports = db.define('attendance', {
     },
 	date: {
         field: 'date',
-        type: Sequelize.DataTypes.Date,
+        type: Sequelize.DataTypes.DATE,
         allowNull: true
     },
 	comment: {
         field: 'comment',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: true
     }
 });
-
-const Participants = require('./Participants');
-const Opportunities = require('./Opportunities');

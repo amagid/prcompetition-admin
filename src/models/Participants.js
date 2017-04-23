@@ -5,18 +5,18 @@ const APIError = require('../APIError');
 const Participants = module.exports = db.define('participants', {
 	caseid: {
         field: 'caseid',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false,
         primaryKey: true
     },
 	name: {
         field: 'name',
-        type: Sequelize.DataTypes.String,
+        type: Sequelize.DataTypes.STRING,
         allowNull: false
     },
 	points: {
         field: 'points',
-        type: Sequelize.DataTypes.Integer,
+        type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 0
     }
