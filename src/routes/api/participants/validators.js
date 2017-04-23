@@ -2,7 +2,8 @@ module.exports = {
     validateGetOne,
     validatePost,
     validateDelete,
-    validatePatch
+    validatePatch,
+    validateRecalculateOne
 };
 
 const caseIDPattern = /[a-z]{1,3}[0-9]*/;
@@ -25,4 +26,8 @@ function validatePatch(input) {
     input.check('updates.name').optional();
     input.check('updates.points').optional().isInt();
     input.check('updates.caseid').optional().matches(caseIDPattern);
+}
+
+function validateRecalculateOne(input) {
+    input.check('caseid').notEmpty().matches(caseIDPattern);
 }
