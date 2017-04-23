@@ -25,4 +25,11 @@ function routes(router) {
     router.patch('/:caseid',
         validation(validators.validatePatch),
         (req, res) => res.promise(Participants.update(req.params.caseid, req.body.updates)));
+
+    router.post('/rescore',
+        (req, res) => res.Promise(Participants.recalculateAll()));
+
+    router.post('/:caseid/recalculate',
+        validation(validators.validateRecalculateOne),
+        (req, res) => res.Promise(Participants.recalculateOne(req.params.caseid)));
 }
