@@ -29,7 +29,7 @@ function routes(router) {
     router.post('/rescore',
         (req, res) => res.promise(Participants.recalculateAll()));
 
-    router.post('/:caseid/recalculate',
+    router.post('/:caseid/rescore',
         validation(validators.validateRecalculateOne),
         (req, res) => res.promise(Participants.recalculateOne(req.params.caseid)));
 }
