@@ -49,11 +49,11 @@ function recalculateOne(caseid) {
 
     UNION ALL
 
-    (SELECT p.caseid, (30 * adt.multiplier * e.multiplier) AS "points" FROM participants p INNER JOIN advertisements a ON p.caseid=a.seller AND p.caseid="${caseid}" INNER JOIN ad_types adt ON a.ad_type = adt.ad_type INNER JOIN events e ON a.event=e.event AND a.semester=e.semester AND a.year=e.year)
+    (SELECT p.caseid, (30 * (CASE WHEN adt.multiplier IS NULL THEN 1 ELSE adt.multiplier END) * e.multiplier) AS "points" FROM participants p INNER JOIN advertisements a ON p.caseid=a.seller AND p.caseid="${caseid}" LEFT OUTER JOIN ad_types adt ON a.ad_type = adt.ad_type INNER JOIN events e ON a.event=e.event AND a.semester=e.semester AND a.year=e.year)
 
     UNION ALL
 
-    (SELECT p.caseid, (20 * adt.multiplier * e.multiplier) AS "points" FROM participants p INNER JOIN advertisements a ON p.caseid=a.creator AND p.caseid="${caseid}" INNER JOIN ad_types adt ON a.ad_type = adt.ad_type INNER JOIN events e ON a.event=e.event AND a.semester=e.semester AND a.year=e.year)
+    (SELECT p.caseid, (20 * (CASE WHEN adt.multiplier IS NULL THEN 1 ELSE adt.multiplier END) * e.multiplier) AS "points" FROM participants p INNER JOIN advertisements a ON p.caseid=a.creator AND p.caseid="${caseid}" LEFT OUTER JOIN ad_types adt ON a.ad_type = adt.ad_type INNER JOIN events e ON a.event=e.event AND a.semester=e.semester AND a.year=e.year)
 
     UNION ALL
 
@@ -71,11 +71,11 @@ function recalculateAll() {
 
     UNION ALL
 
-    (SELECT p.caseid, (30 * adt.multiplier * e.multiplier) AS "points" FROM participants p INNER JOIN advertisements a ON p.caseid=a.seller INNER JOIN ad_types adt ON a.ad_type = adt.ad_type INNER JOIN events e ON a.event=e.event AND a.semester=e.semester AND a.year=e.year)
+    (SELECT p.caseid, (30 * (CASE WHEN adt.multiplier IS NULL THEN 1 ELSE adt.multiplier END) * e.multiplier) AS "points" FROM participants p INNER JOIN advertisements a ON p.caseid=a.seller LEFT OUTER JOIN ad_types adt ON a.ad_type = adt.ad_type INNER JOIN events e ON a.event=e.event AND a.semester=e.semester AND a.year=e.year)
 
     UNION ALL
 
-    (SELECT p.caseid, (20 * adt.multiplier * e.multiplier) AS "points" FROM participants p INNER JOIN advertisements a ON p.caseid=a.creator INNER JOIN ad_types adt ON a.ad_type = adt.ad_type INNER JOIN events e ON a.event=e.event AND a.semester=e.semester AND a.year=e.year)
+    (SELECT p.caseid, (20 * (CASE WHEN adt.multiplier IS NULL THEN 1 ELSE adt.multiplier END) * e.multiplier) AS "points" FROM participants p INNER JOIN advertisements a ON p.caseid=a.creator LEFT OUTER JOIN ad_types adt ON a.ad_type = adt.ad_type INNER JOIN events e ON a.event=e.event AND a.semester=e.semester AND a.year=e.year)
 
     UNION ALL
 
