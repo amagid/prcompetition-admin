@@ -54,27 +54,6 @@ const Opportunities = module.exports = db.define('opportunities', {
             key: 'year'
         }
     }
-}, {
-    classMethods: {
-        findById
-    }
 });
 
 const Events = require('./Events');
-
-function findByName(opportunity) {
-    const options = {};
-
-    options.where = {
-        opportunity
-    };
-
-    return this.constructor.prototype.findOne.call(this, options)
-        .then(result => {
-            if (result) {
-                return result;
-            } else {
-                throw APIError(404, 'Opportunity not found.');
-            }
-        });
-}

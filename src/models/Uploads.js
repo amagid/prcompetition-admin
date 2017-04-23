@@ -75,30 +75,8 @@ const Uploads = module.exports = db.define('uploads', {
             key: 'year'
         }
     }
-}, {
-    classMethods: {
-        findById
-    }
 });
 
 const FileTypes = require('./FileTypes');
 const Participants = require('./Participants');
 const Events = require('./Events');
-
-function findByFileInfo(filename, extension) {
-    const options = {};
-
-    options.where = {
-        filename,
-        extension
-    };
-
-    return this.constructor.prototype.findOne.call(this, options)
-        .then(result => {
-            if (result) {
-                return result;
-            } else {
-                throw APIError(404, 'Upload not found.');
-            }
-        });
-}

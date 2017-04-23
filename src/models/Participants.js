@@ -22,8 +22,7 @@ const Participants = module.exports = db.define('participants', {
     }
 }, {
     classMethods: {
-        getSummary,
-        findById
+        getSummary
     }
 });
 
@@ -35,21 +34,4 @@ function getSummary() {
         "points"
     ];
     return this.constructor.prototype.findAll.call(this, options);
-}
-
-function findByCaseID(caseid) {
-    const options = {};
-
-    options.where = {
-        caseid
-    };
-
-    return this.constructor.prototype.findOne.call(this, options)
-        .then(result => {
-            if (result) {
-                return result;
-            } else {
-                throw APIError(404, 'Participant not found.');
-            }
-        });
 }
