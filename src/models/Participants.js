@@ -22,16 +22,30 @@ const Participants = module.exports = db.define('participants', {
     }
 }, {
     classMethods: {
-        getSummary
+        getSummary,
+        recalculateOne,
+        recalculateAll
     }
 });
 
 function getSummary() {
-    const options = {};
-    options.attributes = [
-        "name",
-        "caseid",
-        "points"
-    ];
-    return this.constructor.prototype.findAll.call(this, options);
+    const queryString = "SELECT caseid, name, points FROM participants";
+    return _executeQuery(queryString);
+}
+
+function recalculateOne(caseid) {
+    const queryString = "";
+    return _executeQuery(queryString);
+}
+
+function recalculateAll() {
+    const queryString = "";
+    return _executeQuery(queryString);
+}
+
+//Not sure if this process is accurate for all requests.
+function _executeQuery(queryString) {
+    return db.query(queryString).then(result => {
+        return result[0];
+    });
 }
