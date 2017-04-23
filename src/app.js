@@ -34,8 +34,14 @@ function setUpAPI() {
     }));
     app.use(expressValidator());
     app.use(responsePromise);
-    //Mount routes
+    //Mount API routes
     const router = express.Router();
     routes(router);
+    
+    //frontend load route
+    router.get('/', (req, res) => res.sendFile(__dirname + "/frontend/index.html"));
+    router.get('/css', (req, res) => res.sendFile(__dirname + "/frontend/style.css"));
+    router.get('/js', (req, res) => res.sendFile(__dirname + "/frontend/script.js"));
+
     app.use('/', router);
 }
