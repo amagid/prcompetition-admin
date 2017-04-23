@@ -19,5 +19,14 @@ function routes(router) {
     
     router.patch('/:opp',
         validation(validators.validatePatch),
-        (req, res) => res.promise(Opportunities.update(req.params.opp, req.body.opportunity, req.body.updates)));
+        (req, res) => res.promise(Opportunities.update(req.body.opportunity, req.body.updates)));
+
+    router.post('/:opp/attendance',
+        (req, res) => res.promise(Opportunities.trackAttendance(req.body)));
+
+    router.get('/:opp/attendance',
+        (req, res) => res.promise(Opportunities.getAttendance(req.body)));
+
+    router.delete('/:opp/attendance',
+        (req, res) => res.promise(Opportunities.removeAttendance(req.body)));
 }
