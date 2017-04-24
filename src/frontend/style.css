@@ -88,3 +88,14 @@
     margin-top: 10px;
     font-size: 18px;
 }
+
+.form_button {
+    cursor: pointer;
+}
+
+.form_button.disabled {
+    cursor: wait !important;
+    background-color: #626262 !important;
+    border-bottom: 2px solid #4D4D4D !important;
+    color: #FFF !important;
+}
