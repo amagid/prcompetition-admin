@@ -4,6 +4,11 @@
     cursor: pointer;
 }
 
+.checkbox_container.floated {
+    float: left;
+    margin-right: 50px;
+}
+
 .checkbox {
     border: 1px solid #888;
     height: 30px;
