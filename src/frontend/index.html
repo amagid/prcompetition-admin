@@ -146,6 +146,142 @@
                     <div class="acc_closed"></div>
                     <div class="acc_open"></div>
                     <div class="acc_number"></div>
+                    <div class="acc_title">Participant</div>
+                    <div class="acc_title acc_details"></div>
+                </div>
+                <div class="acc_bottom participant_outer" data-clickable="false" id="show_form">
+                    <!--Section title-->
+					
+					
+					<!-- inner accordian-->
+						<div class="accordion">
+							<div class="acc_top closed">
+								<div class="acc_closed"></div>
+								<div class="acc_open"></div>
+								<div class="acc_number"></div>
+								<div class="acc_title">Add Participant</div>
+								<div class="acc_title acc_details"></div>
+							</div>
+							<div class="acc_bottom participant_add" data-clickable="false" id="show_form">
+								<!--Section title-->
+								
+								<div class="section_container">
+									<div class="section_divider">
+										<div class="section_label bold">AddParticipant</div>
+										<div class="section_line"></div>
+									</div>
+								</div>
+								<div class="admin_input top bottom" style="width:100%;">
+									<input id="name" type="text" placeholder="Full Name" />
+								</div>
+								<div class="spacer" style="height:20px"></div>
+								
+								<!--Partial-line input field LEFT SIDE-->
+								<div class="admin_input left" style="width:75%;">
+									<input id="caseid" type="text" id="title" placeholder="Case ID" />
+								</div>
+								<!--Partial-line input field RIGHT SIDE-->
+								<div class="admin_input right" style="width:25%;">
+									<input id="points" type="text" id="semester" placeholder="Points" />
+								</div>
+								<!--Spacer element with height-->
+								<div class="spacer" style="height:20px;"></div>
+								
+								<div id="submit" class="form_button blue">Submit</div>
+								<div id="clear "class="form_button red" >Clear Form</div>
+                    
+                    
+
+                    </div>
+					
+                </div>
+            </div>
+			
+			<div class="spacer" style="height:20px;"></div>
+			<!--second collapsable-->
+			<div class="accordion">
+                <div class="acc_top closed">
+                    <div class="acc_closed"></div>
+                    <div class="acc_open"></div>
+                    <div class="acc_number"></div>
+                    <div class="acc_title">Add Opportunity</div>
+                    <div class="acc_title acc_details"></div>
+                </div>
+                <div class="acc_bottom" data-clickable="false" id="show_form">
+                    <!--Section title-->
+                    <div class="section_container">
+                        <div class="section_divider">
+                            <div class="section_label bold">Opportunities</div>
+                            <div class="section_line"></div>
+                        </div>
+                    </div>
+                    <div class="admin_input top bottom" style="width:100%;">
+                        <input type="text" placeholder="Opportunity Name" />
+                    </div>
+                    <div class="spacer" style="height:20px"></div>
+                    
+                    <!--Partial-line input field LEFT SIDE-->
+                    <div class="admin_input left" style="width:75%;">
+                        <input type="text" id="title" placeholder="event" />
+                    </div>
+                    <!--Partial-line input field RIGHT SIDE-->
+                    <div class="admin_input right" style="width:25%;">
+                        <input type="text" id="semester" placeholder="Value" />
+                    </div>
+                    <!--Spacer element with height-->
+                    <div class="spacer" style="height:20px;"></div>
+                    
+                    <!--Input group with variable number of Full-Line Inputs-->
+                    <div class="admin_input_group">
+                        <div class="admin_input top bottom" style="width:100%;">
+                            <input type="date" placeholder="Opportunity Date" />
+                        </div>
+
+                    </div>
+
+                    <div class="spacer" style="height:20px;"></div>
+                    
+                    <!--Multi-Line Input Field-->
+                    <textarea id="synopsis" rows="6" placeholder="Description"></textarea>
+                    <div class="spacer" style="height:20px;"></div>
+                    
+                    <!--Input group with variable number of Partial-Line Inputs-->
+                    <div class="admin_input_group">
+                        <div class="admin_input_row top bottom" style="width:100%;">
+                            <div class="admin_input">
+								<select>
+									<Option value="Spring">Spring</Option>
+									<Option value="Fall">Fall</Option>
+								</select>
+							</div>
+                        </div>
+                    </div>
+
+                    <div class="spacer" style="height:20px;"></div>
+
+                    <!--Buttons!-->        
+                    <div class="form_button blue" id="id1">Button Label</div>
+                    <div class="form_button red" id="id2">Another Button Label</div>
+
+                    <!--Output box!-->
+                    <div class="hidden output_container" id="output1">
+                        <div class="section_container">
+                            <div class="section_divider">
+                                <div class="section_label bold">A label for an output box!</div>
+                            </div>
+                        </div>
+                        <pre><code class="admin_input all" id="output_html" style="width:95%;">This output box outputs code-like text</code></pre>
+                        <div class="admin_input all" id="output_json" style="width:95%;">This output box outputs regular text</div>
+                    </div>
+                </div>
+            </div>
+			
+			<!--third collapsable-->
+			<div class="accordion">
+                <div class="acc_top closed">
+                    <div class="acc_closed"></div>
+                    <div class="acc_open"></div>
+                    <div class="acc_number"></div>
                     <div class="acc_title">Template Form</div>
                     <div class="acc_title acc_details">It's a template!</div>
                 </div>
