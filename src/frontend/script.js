@@ -15,9 +15,13 @@ $(document).ready(function() {
         }
     });
 
+    function clearForm(form) {
+        form.find("input, textarea").val("");
+        form.find(".checkbox, .radiobutton").removeClass("checked");
+    }
+
     $(".clear").click(function() {
-        $(this).parent().find("input, textarea").val("");
-        $(this).parent().find(".checkbox, .radiobutton").removeClass("checked");
+        clearForm($(this).parent());
     });
 
     //FORM SUBMISSIONS
@@ -36,9 +40,10 @@ $(document).ready(function() {
             }).done(function(result) {
                 alert("Success!");
             }).fail(function(error) {
-                alert("Operation Failed. Reason: " + error);
+                alert("Operation Failed. Reason: " + (error.message || "Unknown Error"));
             }).always(function() {
                 button.removeClass("disabled");
+                clearForm(button.parent());
             });
         }
     });
