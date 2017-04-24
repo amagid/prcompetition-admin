@@ -1,0 +1,21 @@
+.checkbox {
+    border: 1px solid #888;
+    height: 30px;
+    width: 30px;
+    padding: 4px 4px 5px 5px;
+    background: white;
+    overflow: hidden;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+}
+
+.checkbox i {
+    color: black;
+    font-size: 30px;
+    display: none;
+}
+
+.checkbox.checked i {
+    display: block;
+}
