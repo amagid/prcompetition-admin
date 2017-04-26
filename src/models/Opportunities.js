@@ -62,7 +62,8 @@ const Opportunities = module.exports = db.define('opportunities', {
         addAttendance,
         checkAttendance,
         getAttendance,
-        removeAttendance      
+        removeAttendance,
+        create      
     }
 });
 
@@ -93,5 +94,12 @@ function removeAttendance(caseid, data) {
     const {opp, event, semester, year} = data;
 
     const queryString = `DELETE FROM attendance WHERE participant="${caseid}" AND opportunity="${opp}" AND semester = "${semester}" AND year = "${year}" AND event = "${event}";`;
+    return mysql.executeQuery(queryString);
+}
+
+function create(data) {
+    const {opp, value, date, description, event, semester, year} = data;
+
+    const queryString = `INSERT into opportunities (opportunity, value, date, description, event, semester, year, created_at, updated_at, deleted_at) VALUES ("${opp}", "${value}", "${date}", "${description}", "${event}", "${semester}", "${year}", NOW(), NOW(), NULL);`;
     return mysql.executeQuery(queryString);
 }

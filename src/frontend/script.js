@@ -42,11 +42,42 @@ $(document).ready(function() {
                     active: active
             }).done(function(result) {
                 alert("Success!");
+                clearForm(button.parent());
             }).fail(function(error) {
                 alert("Operation Failed. Reason: " + (error.message || "Unknown Error"));
             }).always(function() {
                 button.removeClass("disabled");
+            });
+        }
+    });
+
+    $(".opportunity_outer .opportunity_add .submit").click(function() {
+        if (!$(this).hasClass("disabled")) {
+            $(this).addClass("disabled");
+            var opp = $(this).parent().find("#opp").val();
+            var date = (new Date($(this).parent().find("#date").val())).toISOString().split('Z')[0];
+            var value = $(this).parent().find("#value").val();
+            var event = $(this).parent().find("#event").val();
+            var description = $(this).parent().find("#synopsis").val();
+            var semester = $(this).parent().find("#semester").val();
+            var year = $(this).parent().find("#year").val();
+        
+            var button = $(this);
+            $.post("/api/opportunities", {
+                    opp: opp,
+                    date: date,
+                    value: value,
+                    event: event,
+                    description: description,
+                    semester: semester,
+                    year: year
+            }).done(function(result) {
+                alert("Success!");
                 clearForm(button.parent());
+            }).fail(function(error) {
+                alert("Operation Failed. Reason: " + (error.message || "Unknown Error"));
+            }).always(function() {
+                button.removeClass("disabled");
             });
         }
     });

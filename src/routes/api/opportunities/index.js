@@ -9,9 +9,9 @@ function routes(router) {
         validation(validators.validateGet), 
         (req, res) => res.promise(Opportunities.search(req.query)));
 
-    router.post('/:opp',
+    router.post('/',
         validation(validators.validatePost),
-        (req, res) => res.promise(Opportunities.create(req.params.opp, req.body)));
+        (req, res) => res.promise(Opportunities.create(req.body)));
     
     router.delete('/:opp',
         validation(validators.validateDelete),
