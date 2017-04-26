@@ -25,8 +25,30 @@ $(document).ready(function() {
         clearForm($(this).parent());
     });
 
+    $(".open_modal").click(function() {
+        openModalForm($(this).data("form"));
+    });
+
+    function openModalForm(form) {
+        $(".modal_content").addClass(form);
+        $("body").addClass("modal_open");
+    }
+
+    $(".close_modal").click(function() {
+        closeModal();
+    });
+
+    $(document).keydown(function(e) {
+        if (e.which == 27)
+            closeModal();
+    });
+
+    function closeModal() {
+        $("body").removeClass("modal_open");
+    }
+
     //FORM SUBMISSIONS
-    $(".participant_outer .participant_add .submit").click(function() {
+    $(".participant_add .submit").click(function() {
         if (!$(this).hasClass("disabled")) {
             $(this).addClass("disabled");
             var name = $(this).parent().find("#name").val();

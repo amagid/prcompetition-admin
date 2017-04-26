@@ -179,47 +179,12 @@
                     <!--Section title-->
                     <!-- inner accordian-->
                     <div class="accordion">
-                        <div class="acc_top closed">
+                        <div class="acc_top closed open_modal" data-form="participant_add">
                             <div class="acc_closed"></div>
                             <div class="acc_open"></div>
                             <div class="acc_number"></div>
                             <div class="acc_title">Add Participant</div>
                             <div class="acc_title acc_details"></div>
-                        </div>
-                        <div class="acc_bottom participant_add" data-clickable="false" id="show_form">
-                            <!--Section title-->
-                            <div class="section_container">
-                                <div class="section_divider">
-                                    <div class="section_label bold">Add Participant</div>
-                                    <div class="section_line"></div>
-                                </div>
-                            </div>
-                            <div class="admin_input top bottom" style="width:100%;">
-                                <input id="name" type="text" placeholder="Full Name" />
-                            </div>
-                            <div class="spacer" style="height:20px"></div>
-                            <!--Partial-line input field LEFT SIDE-->
-                            <div class="admin_input left" style="width:75%;">
-                                <input id="caseid" type="text" id="title" placeholder="Case ID" />
-                            </div>
-                            <!--Partial-line input field RIGHT SIDE-->
-                            <div class="admin_input right" style="width:25%;">
-                                <input id="points" type="text" id="semester" placeholder="Points" />
-                            </div>
-                            <!--Spacer element with height-->
-                            <div class="spacer" style="height:20px;"></div>
-                  
-                            <div class="checkbox_container">
-                                <div class="checkbox checked" id="active" data-default="checked">
-                                    <i class="fa fa-times"></i>
-                                </div>
-                                <div class="checkbox_label">Active</div>
-                            </div>
-                   
-                            <div class="spacer" style="height: 20px;"></div>
-                   
-                            <div id="submit" class="form_button blue submit">Submit</div>
-                            <div id="clear" class="form_button red clear">Clear Form</div>
                         </div>
                     </div>
                 </div>
@@ -838,11 +803,51 @@
 		</a>
 -->
             </div>
-            <script type="text/javascript">
+        </div>
+    </div>
+    <div class="modal_cover close_modal"></div>
+    <div class="modal_container">
+        <div class="modal_content">
+            <i class="fa fa-times close_modal"></i>
+            <div class="modal_tab participant_add">
+                <!--Section title-->
+                <div class="section_container">
+                    <div class="section_divider">
+                        <div class="section_label bold">Add Participant</div>
+                        <div class="section_line"></div>
+                    </div>
+                </div>
+                <div class="admin_input top bottom" style="width:100%;">
+                    <input id="name" type="text" placeholder="Full Name" />
+                </div>
+                <div class="spacer" style="height:20px"></div>
+                <!--Partial-line input field LEFT SIDE-->
+                <div class="admin_input left" style="width:75%;">
+                    <input id="caseid" type="text" id="title" placeholder="Case ID" />
+                </div>
+                <!--Partial-line input field RIGHT SIDE-->
+                <div class="admin_input right" style="width:25%;">
+                    <input id="points" type="text" id="semester" placeholder="Points" />
+                </div>
+                <!--Spacer element with height-->
+                <div class="spacer" style="height:20px;"></div>
+                <div class="checkbox_container">
+                    <div class="checkbox checked" id="active" data-default="checked">
+                        <i class="fa fa-times"></i>
+                    </div>
+                    <div class="checkbox_label">Active</div>
+                </div>
+                <div class="spacer" style="height: 20px;"></div>
+                <div id="submit" class="form_button blue submit">Submit</div>
+                <div id="clear" class="form_button red clear">Clear Form</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 		</script>
-            <script type="text/javascript">
+    <script type="text/javascript">
 		try {
 		var pageTracker = _gat._getTracker("UA-1975314-11");
 		pageTracker._setDomainName(".orgsync.com");
