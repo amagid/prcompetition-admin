@@ -141,7 +141,7 @@
 		</div>
         CHECKBOX EXAMPLE
         <div class="checkbox_container">
-                <div class="checkbox">
+                <div class="checkbox" data-default="unchecked">
                     <i class="fa fa-times"></i>
                 </div>
                 <div class="checkbox_label">Checkbox</div>
@@ -165,7 +165,7 @@
             
 
 -->
-			<!--first accordion participant-->
+            <!--first accordion participant-->
             <div class="spacer"></div>
             <div class="accordion">
                 <div class="acc_top closed">
@@ -177,56 +177,54 @@
                 </div>
                 <div class="acc_bottom participant_outer" data-clickable="false" id="show_form">
                     <!--Section title-->
-
-					
-					
-					<!-- inner accordian-->
-						<div class="accordion">
-							<div class="acc_top closed">
-								<div class="acc_closed"></div>
-								<div class="acc_open"></div>
-								<div class="acc_number"></div>
-								<div class="acc_title">Add Participant</div>
-								<div class="acc_title acc_details"></div>
-							</div>
-							<div class="acc_bottom participant_add" data-clickable="false" id="show_form">
-								<!--Section title-->
-								
-								<div class="section_container">
-									<div class="section_divider">
-										<div class="section_label bold">Add Participant</div>
-										<div class="section_line"></div>
-									</div>
-								</div>
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="name" type="text" placeholder="Full Name" />
-								</div>
-								<div class="spacer" style="height:20px"></div>
-								
-								<!--Partial-line input field LEFT SIDE-->
-								<div class="admin_input left" style="width:75%;">
-									<input id="caseid" type="text" id="title" placeholder="Case ID" />
-								</div>
-								<!--Partial-line input field RIGHT SIDE-->
-								<div class="admin_input right" style="width:25%;">
-									<input id="points" type="text" id="semester" placeholder="Points" />
-								</div>
-								<!--Spacer element with height-->
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div id="submit" class="form_button blue submit">Submit</div>
-								<div id="clear" class="form_button red clear" >Clear Form</div>
-                    
-                    
-
-							</div>
-					
-						</div>
-						
-						
-				</div>
-			</div>
-			<!--second accordian opportunity-->
+                    <!-- inner accordian-->
+                    <div class="accordion">
+                        <div class="acc_top closed">
+                            <div class="acc_closed"></div>
+                            <div class="acc_open"></div>
+                            <div class="acc_number"></div>
+                            <div class="acc_title">Add Participant</div>
+                            <div class="acc_title acc_details"></div>
+                        </div>
+                        <div class="acc_bottom participant_add" data-clickable="false" id="show_form">
+                            <!--Section title-->
+                            <div class="section_container">
+                                <div class="section_divider">
+                                    <div class="section_label bold">Add Participant</div>
+                                    <div class="section_line"></div>
+                                </div>
+                            </div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="name" type="text" placeholder="Full Name" />
+                            </div>
+                            <div class="spacer" style="height:20px"></div>
+                            <!--Partial-line input field LEFT SIDE-->
+                            <div class="admin_input left" style="width:75%;">
+                                <input id="caseid" type="text" id="title" placeholder="Case ID" />
+                            </div>
+                            <!--Partial-line input field RIGHT SIDE-->
+                            <div class="admin_input right" style="width:25%;">
+                                <input id="points" type="text" id="semester" placeholder="Points" />
+                            </div>
+                            <!--Spacer element with height-->
+                            <div class="spacer" style="height:20px;"></div>
+                  
+                            <div class="checkbox_container">
+                                <div class="checkbox checked" id="active" data-default="checked">
+                                    <i class="fa fa-times"></i>
+                                </div>
+                                <div class="checkbox_label">Active</div>
+                            </div>
+                   
+                            <div class="spacer" style="height: 20px;"></div>
+                   
+                            <div id="submit" class="form_button blue submit">Submit</div>
+                            <div id="clear" class="form_button red clear">Clear Form</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--second accordian opportunity-->
             <div class="accordion">
                 <div class="acc_top closed">
                     <div class="acc_closed"></div>
@@ -237,76 +235,58 @@
                 </div>
                 <div class="acc_bottom opportunity_outer" data-clickable="false" id="show_form">
                     <!--Section title-->
-					
-					
-					<!-- inner accordian-->
-						<div class="accordion">
-							<div class="acc_top closed">
-								<div class="acc_closed"></div>
-								<div class="acc_open"></div>
-								<div class="acc_number"></div>
-								<div class="acc_title">Add Opportunity</div>
-								<div class="acc_title acc_details"></div>
-							</div>
-							<div class="acc_bottom opportunity_add" data-clickable="false" id="show_form">
-								<!--Section title-->
-								
-								<div class="section_container">
-									<div class="section_divider">
-										<div class="section_label bold">Add Opportunity</div>
-										<div class="section_line"></div>
-									</div>
-								</div>
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="name" type="text" placeholder="Opportunity Name" />
-								</div>
-								<div class="spacer" style="height:20px"></div>
-								
-								<!--Partial-line input field LEFT SIDE-->
-								<div class="admin_input left" style="width:75%;">
-									<input id="date" type="text" placeholder="Date (MM/DD/YYYY at HH:MM:SS)" />
-								</div>
-								<!--Partial-line input field RIGHT SIDE-->
-								<div class="admin_input right" style="width:25%;">
-									<input id="value" type="text" id="semester" placeholder="Value" />
-								</div>
-								<!--Spacer element with height-->
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="event" type="text" placeholder="Event Name" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<textarea id="synopsis" rows="6" placeholder="Description"></textarea>
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input left" style="width:50%;">
-									<input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
-								</div>
-								<!--Partial-line input field RIGHT SIDE-->
-								<div class="admin_input right" style="width:50%;">
-									<input type="text" id="year" placeholder="Year (YYYY)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div id="submit" class="form_button blue submit">Submit</div>
-								<div id="clear" class="form_button red clear" >Clear Form</div>
-                    
-                    
-
-							</div>
-					
-						</div>
-						
-						
-				</div>
-			
-			</div>
-			
-			<!--third accordian attendance-->
+                    <!-- inner accordian-->
+                    <div class="accordion">
+                        <div class="acc_top closed">
+                            <div class="acc_closed"></div>
+                            <div class="acc_open"></div>
+                            <div class="acc_number"></div>
+                            <div class="acc_title">Add Opportunity</div>
+                            <div class="acc_title acc_details"></div>
+                        </div>
+                        <div class="acc_bottom opportunity_add" data-clickable="false" id="show_form">
+                            <!--Section title-->
+                            <div class="section_container">
+                                <div class="section_divider">
+                                    <div class="section_label bold">Add Opportunity</div>
+                                    <div class="section_line"></div>
+                                </div>
+                            </div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="name" type="text" placeholder="Opportunity Name" />
+                            </div>
+                            <div class="spacer" style="height:20px"></div>
+                            <!--Partial-line input field LEFT SIDE-->
+                            <div class="admin_input left" style="width:75%;">
+                                <input id="date" type="text" placeholder="Date (MM/DD/YYYY at HH:MM:SS)" />
+                            </div>
+                            <!--Partial-line input field RIGHT SIDE-->
+                            <div class="admin_input right" style="width:25%;">
+                                <input id="value" type="text" id="semester" placeholder="Value" />
+                            </div>
+                            <!--Spacer element with height-->
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="event" type="text" placeholder="Event Name" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <textarea id="synopsis" rows="6" placeholder="Description"></textarea>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input left" style="width:50%;">
+                                <input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
+                            </div>
+                            <!--Partial-line input field RIGHT SIDE-->
+                            <div class="admin_input right" style="width:50%;">
+                                <input type="text" id="year" placeholder="Year (YYYY)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div id="submit" class="form_button blue submit">Submit</div>
+                            <div id="clear" class="form_button red clear">Clear Form</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--third accordian attendance-->
             <div class="accordion">
                 <div class="acc_top closed">
                     <div class="acc_closed"></div>
@@ -317,76 +297,57 @@
                 </div>
                 <div class="acc_bottom attendace_outer" data-clickable="false" id="show_form">
                     <!--Section title-->
-					
-					
-					<!-- inner accordian-->
-						<div class="accordion">
-							<div class="acc_top closed">
-								<div class="acc_closed"></div>
-								<div class="acc_open"></div>
-								<div class="acc_number"></div>
-								<div class="acc_title">Add Attendance</div>
-								<div class="acc_title acc_details"></div>
-							</div>
-							<div class="acc_bottom attendance_add" data-clickable="false" id="show_form">
-								<!--Section title-->
-								
-								<div class="section_container">
-									<div class="section_divider">
-										<div class="section_label bold">Add Attendance</div>
-										<div class="section_line"></div>
-									</div>
-								</div>
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="name" type="text" placeholder="Participant (caseid)" />
-								</div>
-								<div class="spacer" style="height:20px"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="opportunity" type="text" placeholder="Opportunity Name" />
-								</div>
-								<div class="spacer" style="height:20px"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="event" type="text" placeholder="Event Name" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<!--Partial-line input field LEFT SIDE-->
-								<div class="admin_input left" style="width:100%;">
-									<input id="date" type="text" placeholder="Date (MM/DD/YYYY at HH:MM:SS)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input left" style="width:50%;">
-									<input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
-								</div>
-								<!--Partial-line input field RIGHT SIDE-->
-								<div class="admin_input right" style="width:50%;">
-									<input type="text" id="year" placeholder="Year (YYYY)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<textarea id="synopsis" rows="6" placeholder="Comment"></textarea>
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div id="submit" class="form_button blue submit">Submit</div>
-								<div id="clear" class="form_button red clear" >Clear Form</div>
-                    
-                    
-
-							</div>
-					
-						</div>
-						
-						
-				</div>
-			</div>
-			
-			<!--fourth accordian content-->
+                    <!-- inner accordian-->
+                    <div class="accordion">
+                        <div class="acc_top closed">
+                            <div class="acc_closed"></div>
+                            <div class="acc_open"></div>
+                            <div class="acc_number"></div>
+                            <div class="acc_title">Add Attendance</div>
+                            <div class="acc_title acc_details"></div>
+                        </div>
+                        <div class="acc_bottom attendance_add" data-clickable="false" id="show_form">
+                            <!--Section title-->
+                            <div class="section_container">
+                                <div class="section_divider">
+                                    <div class="section_label bold">Add Attendance</div>
+                                    <div class="section_line"></div>
+                                </div>
+                            </div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="name" type="text" placeholder="Participant (caseid)" />
+                            </div>
+                            <div class="spacer" style="height:20px"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="opportunity" type="text" placeholder="Opportunity Name" />
+                            </div>
+                            <div class="spacer" style="height:20px"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="event" type="text" placeholder="Event Name" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <!--Partial-line input field LEFT SIDE-->
+                            <div class="admin_input left" style="width:100%;">
+                                <input id="date" type="text" placeholder="Date (MM/DD/YYYY at HH:MM:SS)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input left" style="width:50%;">
+                                <input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
+                            </div>
+                            <!--Partial-line input field RIGHT SIDE-->
+                            <div class="admin_input right" style="width:50%;">
+                                <input type="text" id="year" placeholder="Year (YYYY)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <textarea id="synopsis" rows="6" placeholder="Comment"></textarea>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div id="submit" class="form_button blue submit">Submit</div>
+                            <div id="clear" class="form_button red clear">Clear Form</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--fourth accordian content-->
             <div class="accordion">
                 <div class="acc_top closed">
                     <div class="acc_closed"></div>
@@ -397,51 +358,38 @@
                 </div>
                 <div class="acc_bottom content_outer" data-clickable="false" id="show_form">
                     <!--Section title-->
-					
-					
-					<!-- inner accordian-->
-						<div class="accordion">
-							<div class="acc_top closed">
-								<div class="acc_closed"></div>
-								<div class="acc_open"></div>
-								<div class="acc_number"></div>
-								<div class="acc_title">Add Content</div>
-								<div class="acc_title acc_details"></div>
-							</div>
-							<div class="acc_bottom content_add" data-clickable="false" id="show_form">
-								<!--Section title-->
-								
-								<div class="section_container">
-									<div class="section_divider">
-										<div class="section_label bold">Add Content</div>
-										<div class="section_line"></div>
-									</div>
-								</div>
-								
-								<div class="admin_input left" style="width:75%;">
-									<input id="content" type="text" placeholder="Content" />
-								</div>
-								<!--Partial-line input field RIGHT SIDE-->
-								<div class="admin_input right" style="width:25%;">
-									<input id="multiplier" type="text" id="semester" placeholder="Multiplier" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div id="submit" class="form_button blue submit">Submit</div>
-								<div id="clear" class="form_button red clear" >Clear Form</div>
-                    
-                    
-
-							</div>
-					
-						</div>
-						
-						
-				</div>
-			</div>
-			
-			<!--fifth accordian event-->
+                    <!-- inner accordian-->
+                    <div class="accordion">
+                        <div class="acc_top closed">
+                            <div class="acc_closed"></div>
+                            <div class="acc_open"></div>
+                            <div class="acc_number"></div>
+                            <div class="acc_title">Add Content</div>
+                            <div class="acc_title acc_details"></div>
+                        </div>
+                        <div class="acc_bottom content_add" data-clickable="false" id="show_form">
+                            <!--Section title-->
+                            <div class="section_container">
+                                <div class="section_divider">
+                                    <div class="section_label bold">Add Content</div>
+                                    <div class="section_line"></div>
+                                </div>
+                            </div>
+                            <div class="admin_input left" style="width:75%;">
+                                <input id="content" type="text" placeholder="Content" />
+                            </div>
+                            <!--Partial-line input field RIGHT SIDE-->
+                            <div class="admin_input right" style="width:25%;">
+                                <input id="multiplier" type="text" id="semester" placeholder="Multiplier" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div id="submit" class="form_button blue submit">Submit</div>
+                            <div id="clear" class="form_button red clear">Clear Form</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--fifth accordian event-->
             <div class="accordion">
                 <div class="acc_top closed">
                     <div class="acc_closed"></div>
@@ -452,63 +400,46 @@
                 </div>
                 <div class="acc_bottom event_outer" data-clickable="false" id="show_form">
                     <!--Section title-->
-					
-					
-					<!-- inner accordian-->
-						<div class="accordion">
-							<div class="acc_top closed">
-								<div class="acc_closed"></div>
-								<div class="acc_open"></div>
-								<div class="acc_number"></div>
-								<div class="acc_title">Add Event</div>
-								<div class="acc_title acc_details"></div>
-							</div>
-							<div class="acc_bottom event_add" data-clickable="false" id="show_form">
-								<!--Section title-->
-								
-								<div class="section_container">
-									<div class="section_divider">
-										<div class="section_label bold">Add Event</div>
-										<div class="section_line"></div>
-									</div>
-								</div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="event" type="text" placeholder="Event Name" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input left" style="width:50%;">
-									<input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
-								</div>
-								<!--Partial-line input field RIGHT SIDE-->
-								<div class="admin_input right" style="width:50%;">
-									<input type="text" id="year" placeholder="Year (YYYY)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="multiplier" type="text" placeholder="Multiplier" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div id="submit" class="form_button blue submit">Submit</div>
-								<div id="clear" class="form_button red clear" >Clear Form</div>
-                    
-                    
-
-							</div>
-					
-						</div>
-						
-						
-				</div>
-			</div>
-			
-			<!--sixth accordian ad type-->
+                    <!-- inner accordian-->
+                    <div class="accordion">
+                        <div class="acc_top closed">
+                            <div class="acc_closed"></div>
+                            <div class="acc_open"></div>
+                            <div class="acc_number"></div>
+                            <div class="acc_title">Add Event</div>
+                            <div class="acc_title acc_details"></div>
+                        </div>
+                        <div class="acc_bottom event_add" data-clickable="false" id="show_form">
+                            <!--Section title-->
+                            <div class="section_container">
+                                <div class="section_divider">
+                                    <div class="section_label bold">Add Event</div>
+                                    <div class="section_line"></div>
+                                </div>
+                            </div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="event" type="text" placeholder="Event Name" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input left" style="width:50%;">
+                                <input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
+                            </div>
+                            <!--Partial-line input field RIGHT SIDE-->
+                            <div class="admin_input right" style="width:50%;">
+                                <input type="text" id="year" placeholder="Year (YYYY)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="multiplier" type="text" placeholder="Multiplier" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div id="submit" class="form_button blue submit">Submit</div>
+                            <div id="clear" class="form_button red clear">Clear Form</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--sixth accordian ad type-->
             <div class="accordion">
                 <div class="acc_top closed">
                     <div class="acc_closed"></div>
@@ -519,51 +450,38 @@
                 </div>
                 <div class="acc_bottom ad_types_outer" data-clickable="false" id="show_form">
                     <!--Section title-->
-					
-					
-					<!-- inner accordian-->
-						<div class="accordion">
-							<div class="acc_top closed">
-								<div class="acc_closed"></div>
-								<div class="acc_open"></div>
-								<div class="acc_number"></div>
-								<div class="acc_title">Add Ad Type</div>
-								<div class="acc_title acc_details"></div>
-							</div>
-							<div class="acc_bottom ad_types_add" data-clickable="false" id="show_form">
-								<!--Section title-->
-								
-								<div class="section_container">
-									<div class="section_divider">
-										<div class="section_label bold">Add Ad Type</div>
-										<div class="section_line"></div>
-									</div>
-								</div>
-								
-								<div class="admin_input left" style="width:75%;">
-									<input id="ad_type" type="text" placeholder="Ad Type" />
-								</div>
-								<!--Partial-line input field RIGHT SIDE-->
-								<div class="admin_input right" style="width:25%;">
-									<input id="multiplier" type="text" id="semester" placeholder="Multiplier" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div id="submit" class="form_button blue submit">Submit</div>
-								<div id="clear" class="form_button red clear" >Clear Form</div>
-                    
-                    
-
-							</div>
-					
-						</div>
-						
-						
-				</div>
-			</div>
-			
-			<!--seventh accordian advertisement-->
+                    <!-- inner accordian-->
+                    <div class="accordion">
+                        <div class="acc_top closed">
+                            <div class="acc_closed"></div>
+                            <div class="acc_open"></div>
+                            <div class="acc_number"></div>
+                            <div class="acc_title">Add Ad Type</div>
+                            <div class="acc_title acc_details"></div>
+                        </div>
+                        <div class="acc_bottom ad_types_add" data-clickable="false" id="show_form">
+                            <!--Section title-->
+                            <div class="section_container">
+                                <div class="section_divider">
+                                    <div class="section_label bold">Add Ad Type</div>
+                                    <div class="section_line"></div>
+                                </div>
+                            </div>
+                            <div class="admin_input left" style="width:75%;">
+                                <input id="ad_type" type="text" placeholder="Ad Type" />
+                            </div>
+                            <!--Partial-line input field RIGHT SIDE-->
+                            <div class="admin_input right" style="width:25%;">
+                                <input id="multiplier" type="text" id="semester" placeholder="Multiplier" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div id="submit" class="form_button blue submit">Submit</div>
+                            <div id="clear" class="form_button red clear">Clear Form</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--seventh accordian advertisement-->
             <div class="accordion">
                 <div class="acc_top closed">
                     <div class="acc_closed"></div>
@@ -574,134 +492,98 @@
                 </div>
                 <div class="acc_bottom advertisement_outer" data-clickable="false" id="show_form">
                     <!--Section title-->
-					
-					
-					<!-- inner accordian-->
-						<div class="accordion">
-							<div class="acc_top closed">
-								<div class="acc_closed"></div>
-								<div class="acc_open"></div>
-								<div class="acc_number"></div>
-								<div class="acc_title">Add Advertisement</div>
-								<div class="acc_title acc_details"></div>
-							</div>
-							<div class="acc_bottom advertisement_add" data-clickable="false" id="show_form">
-								<!--Section title-->
-								
-								<div class="section_container">
-									<div class="section_divider">
-										<div class="section_label bold">Add Advertisement</div>
-										<div class="section_line"></div>
-									</div>
-								</div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="buyer" type="text" placeholder="Buyer" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="event" type="text" placeholder="Event Name" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input left" style="width:50%;">
-									<input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
-								</div>
-								<!--Partial-line input field RIGHT SIDE-->
-								<div class="admin_input right" style="width:50%;">
-									<input type="text" id="year" placeholder="Year (YYYY)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="creator" type="text" placeholder="Creator (caseid)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="seller" type="text" placeholder="Seller (caseid)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="ad_type" type="text" placeholder="Ad Type" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="buyer_type" type="text" placeholder="Buyer (Business/University Organization/Student Organization)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="checkbox_group oneline">
-									<div class="checkbox_container">
-										<div id="interest" class="checkbox">
-											<i class="fa fa-times"></i>
-										</div>
-										<div class="checkbox_label">Interest</div>
-									</div>
-									
-									<div class="checkbox_container">
-										<div id="received" class="checkbox">
-											<i class="fa fa-times"></i>
-										</div>
-										<div class="checkbox_label">Received</div>
-									</div>
-									
-									<div class="checkbox_container">
-										<div id="paid" class="checkbox">
-											<i class="fa fa-times"></i>
-										</div>
-										<div class="checkbox_label">Paid</div>
-									</div>
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input left" style="width:100%;">
-									<input id="initial_contact" type="text" placeholder="Initial Contact (MM/DD/YYYY at HH:MM:SS)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-
-								<div class="admin_input left" style="width:100%;">
-									<input id="last_contact" type="text" placeholder="Last Contact (MM/DD/YYYY at HH:MM:SS)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="multiplier" type="text" placeholder="Multiplier" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<textarea id="synopsis" rows="6" placeholder="Comment"></textarea>
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div id="submit" class="form_button blue submit">Submit</div>
-								<div id="clear" class="form_button red clear" >Clear Form</div>
-                    
-                    
-
-							</div>
-					
-						</div>
-						
-						
-				</div>
-			</div>
-			
-			<!--eighth accordian file type-->
-			<div class="accordion">
+                    <!-- inner accordian-->
+                    <div class="accordion">
+                        <div class="acc_top closed">
+                            <div class="acc_closed"></div>
+                            <div class="acc_open"></div>
+                            <div class="acc_number"></div>
+                            <div class="acc_title">Add Advertisement</div>
+                            <div class="acc_title acc_details"></div>
+                        </div>
+                        <div class="acc_bottom advertisement_add" data-clickable="false" id="show_form">
+                            <!--Section title-->
+                            <div class="section_container">
+                                <div class="section_divider">
+                                    <div class="section_label bold">Add Advertisement</div>
+                                    <div class="section_line"></div>
+                                </div>
+                            </div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="buyer" type="text" placeholder="Buyer" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="event" type="text" placeholder="Event Name" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input left" style="width:50%;">
+                                <input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
+                            </div>
+                            <!--Partial-line input field RIGHT SIDE-->
+                            <div class="admin_input right" style="width:50%;">
+                                <input type="text" id="year" placeholder="Year (YYYY)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="creator" type="text" placeholder="Creator (caseid)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="seller" type="text" placeholder="Seller (caseid)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="ad_type" type="text" placeholder="Ad Type" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="buyer_type" type="text" placeholder="Buyer (Business/University Organization/Student Organization)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="checkbox_group oneline">
+                                <div class="checkbox_container">
+                                    <div id="interest" class="checkbox" data-default="unchecked">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                    <div class="checkbox_label">Interest</div>
+                                </div>
+                                <div class="checkbox_container">
+                                    <div id="received" class="checkbox" data-default="unchecked">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                    <div class="checkbox_label">Received</div>
+                                </div>
+                                <div class="checkbox_container">
+                                    <div id="paid" class="checkbox" data-default="unchecked">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                    <div class="checkbox_label">Paid</div>
+                                </div>
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input left" style="width:100%;">
+                                <input id="initial_contact" type="text" placeholder="Initial Contact (MM/DD/YYYY at HH:MM:SS)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input left" style="width:100%;">
+                                <input id="last_contact" type="text" placeholder="Last Contact (MM/DD/YYYY at HH:MM:SS)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="multiplier" type="text" placeholder="Multiplier" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <textarea id="synopsis" rows="6" placeholder="Comment"></textarea>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div id="submit" class="form_button blue submit">Submit</div>
+                            <div id="clear" class="form_button red clear">Clear Form</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--eighth accordian file type-->
+            <div class="accordion">
                 <div class="acc_top closed">
                     <div class="acc_closed"></div>
                     <div class="acc_open"></div>
@@ -711,51 +593,38 @@
                 </div>
                 <div class="acc_bottom file_type_outer" data-clickable="false" id="show_form">
                     <!--Section title-->
-					
-					
-					<!-- inner accordian-->
-						<div class="accordion">
-							<div class="acc_top closed">
-								<div class="acc_closed"></div>
-								<div class="acc_open"></div>
-								<div class="acc_number"></div>
-								<div class="acc_title">Add File Type</div>
-								<div class="acc_title acc_details"></div>
-							</div>
-							<div class="acc_bottom file_type_add" data-clickable="false" id="show_form">
-								<!--Section title-->
-								
-								<div class="section_container">
-									<div class="section_divider">
-										<div class="section_label bold">Add File Type</div>
-										<div class="section_line"></div>
-									</div>
-								</div>
-								
-								<div class="admin_input left" style="width:75%;">
-									<input id="file_type" type="text" placeholder="File Type" />
-								</div>
-								<!--Partial-line input field RIGHT SIDE-->
-								<div class="admin_input right" style="width:25%;">
-									<input id="value" type="text" id="semester" placeholder="Value" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div id="submit" class="form_button blue submit">Submit</div>
-								<div id="clear" class="form_button red clear" >Clear Form</div>
-                    
-                    
-
-							</div>
-					
-						</div>
-						
-						
-				</div>
-			</div>
-			
-			<!--ninth accordian uploads-->
+                    <!-- inner accordian-->
+                    <div class="accordion">
+                        <div class="acc_top closed">
+                            <div class="acc_closed"></div>
+                            <div class="acc_open"></div>
+                            <div class="acc_number"></div>
+                            <div class="acc_title">Add File Type</div>
+                            <div class="acc_title acc_details"></div>
+                        </div>
+                        <div class="acc_bottom file_type_add" data-clickable="false" id="show_form">
+                            <!--Section title-->
+                            <div class="section_container">
+                                <div class="section_divider">
+                                    <div class="section_label bold">Add File Type</div>
+                                    <div class="section_line"></div>
+                                </div>
+                            </div>
+                            <div class="admin_input left" style="width:75%;">
+                                <input id="file_type" type="text" placeholder="File Type" />
+                            </div>
+                            <!--Partial-line input field RIGHT SIDE-->
+                            <div class="admin_input right" style="width:25%;">
+                                <input id="value" type="text" id="semester" placeholder="Value" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div id="submit" class="form_button blue submit">Submit</div>
+                            <div id="clear" class="form_button red clear">Clear Form</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--ninth accordian uploads-->
             <div class="accordion">
                 <div class="acc_top closed">
                     <div class="acc_closed"></div>
@@ -766,102 +635,74 @@
                 </div>
                 <div class="acc_bottom uploads_outer" data-clickable="false" id="show_form">
                     <!--Section title-->
-					
-					
-					<!-- inner accordian-->
-						<div class="accordion">
-							<div class="acc_top closed">
-								<div class="acc_closed"></div>
-								<div class="acc_open"></div>
-								<div class="acc_number"></div>
-								<div class="acc_title">Add Upload</div>
-								<div class="acc_title acc_details"></div>
-							</div>
-							<div class="acc_bottom upload_add" data-clickable="false" id="show_form">
-								<!--Section title-->
-								
-								<div class="section_container">
-									<div class="section_divider">
-										<div class="section_label bold">Add Upload</div>
-										<div class="section_line"></div>
-									</div>
-								</div>
-								
-								<div class="admin_input left" style="width:75%;">
-									<input id="filename" type="text" placeholder="File Name" />
-								</div>
-								
-								<div class="admin_input right" style="width:25%;">
-									<input id="extension" type="text" placeholder="File Extension" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="file_type" type="text" placeholder="File Type" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="submitter" type="text" placeholder="Submitter (caseid)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="event" type="text" placeholder="Event Name" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="content" type="text" placeholder="Content" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="date" type="text" placeholder="Date" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input left" style="width:50%;">
-									<input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
-								</div>
-								<!--Partial-line input field RIGHT SIDE-->
-								<div class="admin_input right" style="width:50%;">
-									<input type="text" id="year" placeholder="Year (YYYY)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="checkbox_group oneline">
-									<div class="checkbox_container">
-										<div id="used" class="checkbox">
-											<i class="fa fa-times"></i>
-										</div>
-										<div class="checkbox_label">Used</div>
-									</div>
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div id="submit" class="form_button blue submit">Submit</div>
-								<div id="clear" class="form_button red clear" >Clear Form</div>
-                    
-                    
-
-							</div>
-					
-						</div>
-						
-						
-				</div>
-			</div>
-			
-			<!--tenth accordian additional points-->
+                    <!-- inner accordian-->
+                    <div class="accordion">
+                        <div class="acc_top closed">
+                            <div class="acc_closed"></div>
+                            <div class="acc_open"></div>
+                            <div class="acc_number"></div>
+                            <div class="acc_title">Add Upload</div>
+                            <div class="acc_title acc_details"></div>
+                        </div>
+                        <div class="acc_bottom upload_add" data-clickable="false" id="show_form">
+                            <!--Section title-->
+                            <div class="section_container">
+                                <div class="section_divider">
+                                    <div class="section_label bold">Add Upload</div>
+                                    <div class="section_line"></div>
+                                </div>
+                            </div>
+                            <div class="admin_input left" style="width:75%;">
+                                <input id="filename" type="text" placeholder="File Name" />
+                            </div>
+                            <div class="admin_input right" style="width:25%;">
+                                <input id="extension" type="text" placeholder="File Extension" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="file_type" type="text" placeholder="File Type" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="submitter" type="text" placeholder="Submitter (caseid)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="event" type="text" placeholder="Event Name" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="content" type="text" placeholder="Content" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="date" type="text" placeholder="Date" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input left" style="width:50%;">
+                                <input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
+                            </div>
+                            <!--Partial-line input field RIGHT SIDE-->
+                            <div class="admin_input right" style="width:50%;">
+                                <input type="text" id="year" placeholder="Year (YYYY)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="checkbox_group oneline">
+                                <div class="checkbox_container">
+                                    <div id="used" class="checkbox" data-default="unchecked">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                    <div class="checkbox_label">Used</div>
+                                </div>
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div id="submit" class="form_button blue submit">Submit</div>
+                            <div id="clear" class="form_button red clear">Clear Form</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--tenth accordian additional points-->
             <div class="accordion">
                 <div class="acc_top closed">
                     <div class="acc_closed"></div>
@@ -872,143 +713,120 @@
                 </div>
                 <div class="acc_bottom additional_points_outer" data-clickable="false" id="show_form">
                     <!--Section title-->
-					
-					
-					<!-- inner accordian-->
-						<div class="accordion">
-							<div class="acc_top closed">
-								<div class="acc_closed"></div>
-								<div class="acc_open"></div>
-								<div class="acc_number"></div>
-								<div class="acc_title">Add Additional Points</div>
-								<div class="acc_title acc_details"></div>
-							</div>
-							<div class="acc_bottom additional_points_add" data-clickable="false" id="show_form">
-								<!--Section title-->
-								
-								<div class="section_container">
-									<div class="section_divider">
-										<div class="section_label bold">Add Additional Points</div>
-										<div class="section_line"></div>
-									</div>
-								</div>
-								
-								<div class="admin_input top bottom" style="width:75%;">
-									<input id="title" type="text" placeholder="Title" />
-								</div>
-								
-								<div class="admin_input top bottom" style="width:25%;">
-									<input id="value" type="text" placeholder="Value" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="recipient" type="text" placeholder="Recipient (caseid)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="event" type="text" placeholder="Event Name" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input top bottom" style="width:100%;">
-									<input id="date" type="text" placeholder="Date" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div class="admin_input left" style="width:50%;">
-									<input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
-								</div>
-								<!--Partial-line input field RIGHT SIDE-->
-								<div class="admin_input right" style="width:50%;">
-									<input type="text" id="year" placeholder="Year (YYYY)" />
-								</div>
-								
-								<div class="spacer" style="height:20px;"></div>
-								
-								<textarea id="synopsis" rows="6" placeholder="Description"></textarea>
-								<div class="spacer" style="height:20px;"></div>
-								
-								<div id="submit" class="form_button blue submit">Submit</div>
-								<div id="clear" class="form_button red clear" >Clear Form</div>
-                    
-                    
-
-							</div>
-					
-						</div>
-						
-						
-				</div>
-			</div>
-
-        <div id="event_popup_box_wrapper" style="display:none;">
-            <div id="event_popup_box" class="profile_box">
-            </div>
-            <div id="day_popup_box_wrapper" style="display:none;">
-                <div id="day_popup_box" class="profile_box">
+                    <!-- inner accordian-->
+                    <div class="accordion">
+                        <div class="acc_top closed">
+                            <div class="acc_closed"></div>
+                            <div class="acc_open"></div>
+                            <div class="acc_number"></div>
+                            <div class="acc_title">Add Additional Points</div>
+                            <div class="acc_title acc_details"></div>
+                        </div>
+                        <div class="acc_bottom additional_points_add" data-clickable="false" id="show_form">
+                            <!--Section title-->
+                            <div class="section_container">
+                                <div class="section_divider">
+                                    <div class="section_label bold">Add Additional Points</div>
+                                    <div class="section_line"></div>
+                                </div>
+                            </div>
+                            <div class="admin_input top bottom" style="width:75%;">
+                                <input id="title" type="text" placeholder="Title" />
+                            </div>
+                            <div class="admin_input top bottom" style="width:25%;">
+                                <input id="value" type="text" placeholder="Value" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="recipient" type="text" placeholder="Recipient (caseid)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="event" type="text" placeholder="Event Name" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input top bottom" style="width:100%;">
+                                <input id="date" type="text" placeholder="Date" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div class="admin_input left" style="width:50%;">
+                                <input id="semester" type="text" placeholder="Semester (Spring/Fall)" />
+                            </div>
+                            <!--Partial-line input field RIGHT SIDE-->
+                            <div class="admin_input right" style="width:50%;">
+                                <input type="text" id="year" placeholder="Year (YYYY)" />
+                            </div>
+                            <div class="spacer" style="height:20px;"></div>
+                            <textarea id="synopsis" rows="6" placeholder="Description"></textarea>
+                            <div class="spacer" style="height:20px;"></div>
+                            <div id="submit" class="form_button blue submit">Submit</div>
+                            <div id="clear" class="form_button red clear">Clear Form</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="m_navbar_close mobile"></div>
-        <div class="m_navbar mobile">
-            <a href="https://docs.google.com/a/case.edu/forms/d/1ZJkDt0yi81i5dZVulBLA-QzODxV_C2fS-LN86Xgcrs8/viewform" class="audition"
-                target="_blank">
-                <div class="m_navlink buy">
-                    <div class="m_navtext">AUDITION SIGN UPS</div>
+            <div id="event_popup_box_wrapper" style="display:none;">
+                <div id="event_popup_box" class="profile_box">
                 </div>
-            </a>
-            <a href="http://case.universitytickets.com/user_pages/category.asp?id=39" class="tickets" target="_blank">
-                <div class="m_navlink buy">
-                    <div class="m_navtext">BUY TICKETS</div>
+                <div id="day_popup_box_wrapper" style="display:none;">
+                    <div id="day_popup_box" class="profile_box">
+                    </div>
                 </div>
-            </a>
-            <a href="http://usg.case.edu/org/footlighters/donate" data-page="donate">
-                <div class="m_navlink donate">
-                    <div class="m_navtext">Donate</div>
-                </div>
-            </a>
-            <a href="http://usg.case.edu/org/footlighters/home" data-page="home">
-                <div class="m_navlink">
-                    <div class="m_navtext">Home</div>
-                </div>
-            </a>
-            <a href="http://usg.case.edu/org/footlighters/about" data-page="about">
-                <div class="m_navlink">
-                    <div class="m_navtext">About</div>
-                </div>
-            </a>
-            <a href="http://usg.case.edu/org/footlighters/past" data-page="past">
-                <div class="m_navlink">
-                    <div class="m_navtext">Past Shows</div>
-                </div>
-            </a>
-            <a href="http://usg.case.edu/org/footlighters/current" data-page="current">
-                <div class="m_navlink">
-                    <div class="m_navtext">Current Show</div>
-                </div>
-            </a>
-            <a href="http://usg.case.edu/org/footlighters/slebs" data-page="slebs">
-                <div class="m_navlink">
-                    <div class="m_navtext">SLEBS</div>
-                </div>
-            </a>
-            <a href="http://usg.case.edu/org/footlighters/members" data-page="members">
-                <div class="m_navlink">
-                    <div class="m_navtext">Members</div>
-                </div>
-            </a>
-            <a href="http://usg.case.edu/org/footlighters/PRCompetition" data-page="competition">
-                <div class="m_navlink">
-                    <div class="m_navtext">PR Competition</div>
-                </div>
-            </a>
-            <!--
+            </div>
+            <div class="m_navbar_close mobile"></div>
+            <div class="m_navbar mobile">
+                <a href="https://docs.google.com/a/case.edu/forms/d/1ZJkDt0yi81i5dZVulBLA-QzODxV_C2fS-LN86Xgcrs8/viewform" class="audition"
+                    target="_blank">
+                    <div class="m_navlink buy">
+                        <div class="m_navtext">AUDITION SIGN UPS</div>
+                    </div>
+                </a>
+                <a href="http://case.universitytickets.com/user_pages/category.asp?id=39" class="tickets" target="_blank">
+                    <div class="m_navlink buy">
+                        <div class="m_navtext">BUY TICKETS</div>
+                    </div>
+                </a>
+                <a href="http://usg.case.edu/org/footlighters/donate" data-page="donate">
+                    <div class="m_navlink donate">
+                        <div class="m_navtext">Donate</div>
+                    </div>
+                </a>
+                <a href="http://usg.case.edu/org/footlighters/home" data-page="home">
+                    <div class="m_navlink">
+                        <div class="m_navtext">Home</div>
+                    </div>
+                </a>
+                <a href="http://usg.case.edu/org/footlighters/about" data-page="about">
+                    <div class="m_navlink">
+                        <div class="m_navtext">About</div>
+                    </div>
+                </a>
+                <a href="http://usg.case.edu/org/footlighters/past" data-page="past">
+                    <div class="m_navlink">
+                        <div class="m_navtext">Past Shows</div>
+                    </div>
+                </a>
+                <a href="http://usg.case.edu/org/footlighters/current" data-page="current">
+                    <div class="m_navlink">
+                        <div class="m_navtext">Current Show</div>
+                    </div>
+                </a>
+                <a href="http://usg.case.edu/org/footlighters/slebs" data-page="slebs">
+                    <div class="m_navlink">
+                        <div class="m_navtext">SLEBS</div>
+                    </div>
+                </a>
+                <a href="http://usg.case.edu/org/footlighters/members" data-page="members">
+                    <div class="m_navlink">
+                        <div class="m_navtext">Members</div>
+                    </div>
+                </a>
+                <a href="http://usg.case.edu/org/footlighters/PRCompetition" data-page="competition">
+                    <div class="m_navlink">
+                        <div class="m_navtext">PR Competition</div>
+                    </div>
+                </a>
+                <!--
 		<a href="http://usg.case.edu/org/footlighters/get_involved" data-page="get_involved">
 
 			<div class="m_navlink">
@@ -1019,12 +837,12 @@
 
 		</a>
 -->
-        </div>
-        <script type="text/javascript">
+            </div>
+            <script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 		</script>
-        <script type="text/javascript">
+            <script type="text/javascript">
 		try {
 		var pageTracker = _gat._getTracker("UA-1975314-11");
 		pageTracker._setDomainName(".orgsync.com");

@@ -17,7 +17,8 @@ $(document).ready(function() {
 
     function clearForm(form) {
         form.find("input, textarea").val("");
-        form.find(".checkbox, .radiobutton").removeClass("checked");
+        form.find(".checkbox:not([data-default=checked]), .radiobutton:not([data-default=checked])").removeClass("checked");
+        form.find(".checkbox[data-default=checked], .radiobutton[data-default=checked]").addClass("checked");
     }
 
     $(".clear").click(function() {
@@ -31,12 +32,14 @@ $(document).ready(function() {
             var name = $(this).parent().find("#name").val();
             var caseid = $(this).parent().find("#caseid").val();
             var points = $(this).parent().find("#points").val();
+            var active = $(this).parent().find("#active").hasClass("checked");
         
             var button = $(this);
             $.post("/api/participants", {
                     name: name,
                     caseid: caseid,
-                    points: points
+                    points: points,
+                    active: active
             }).done(function(result) {
                 alert("Success!");
             }).fail(function(error) {
