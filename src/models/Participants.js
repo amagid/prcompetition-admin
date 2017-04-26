@@ -31,7 +31,9 @@ const Participants = module.exports = db.define('participants', {
     classMethods: {
         getSummary,
         recalculateOne,
-        recalculateAll
+        recalculateAll,
+        findAll,
+        create
     }
 });
 
@@ -81,5 +83,19 @@ function recalculateAll() {
 
     (SELECT p.caseid, (o.value * e.multiplier) AS "points" FROM participants p INNER JOIN attendance a ON p.caseid=a.participant INNER JOIN opportunities o ON o.opportunity=a.opportunity INNER JOIN events e ON o.event=e.event AND o.semester=e.semester AND o.year=e.year)) AS allpoints GROUP BY caseid) AS newpoints ON oldpoints.caseid=newpoints.caseid SET oldpoints.points=newpoints.points;`;
     
+    return mysql.executeQuery(queryString);
+}
+
+function findAll() {
+    const queryString = "SELECT * FROM participants;";
+
+    return mysql.executeQuery(queryString);
+}
+
+function create(data) {
+    const {name, caseid, points, active} = data;
+    const queryString = `INSERT INTO participants (caseid, name, points, active, created_at, updated_at, deleted_at)
+                        VALUES ("${caseid}", "${name}", ${points}, ${active || false}, NOW(), NOW(), NULL);`;
+
     return mysql.executeQuery(queryString);
 }
