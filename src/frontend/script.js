@@ -66,11 +66,11 @@ $(document).ready(function() {
             $.post("/api/opportunities", {
                     opp: opp,
                     date: date,
-                    value: value,
+                    value: parseInt(value),
                     event: event,
                     description: description,
-                    semester: semester,
-                    year: year
+                    semester: semester.toLowerCase(),
+                    year: parseInt(year)
             }).done(function(result) {
                 alert("Success!");
                 clearForm(button.parent());
