@@ -168,7 +168,7 @@
             <!--first accordion participant-->
             <div class="spacer"></div>
             <div class="accordion">
-                <div class="acc_top closed">
+                <div class="acc_top closed load_participants">
                     <div class="acc_closed"></div>
                     <div class="acc_open"></div>
                     <div class="acc_number"></div>
@@ -178,13 +178,19 @@
                 <div class="acc_bottom participant_outer" data-clickable="false" id="show_form">
                     <!--Section title-->
                     <!-- inner accordian-->
-                    <div class="accordion">
-                        <div class="acc_top closed open_modal" data-form="participant_add">
-                            <div class="acc_closed"></div>
-                            <div class="acc_open"></div>
-                            <div class="acc_number"></div>
-                            <div class="acc_title">Add Participant</div>
-                            <div class="acc_title acc_details"></div>
+                    <div class="form_button blue open_modal" data-form="participant_add">Add Participant</div>
+                    <div class="spacer" style="height: 20px;"></div>
+                    <div class="section_container">
+                        <div class="section_divider">
+                            <div class="section_label bold">Current Participants</div>
+                            <div class="section_line"></div>
+                        </div>
+                    </div>
+                    <div class="participants_output table">
+                        <div class="row bold">
+                            <div class="cell caseid">CaseID</div>
+                            <div class="cell name">Full Name</div>
+                            <div class="cell points">Total Points</div>
                         </div>
                     </div>
                 </div>

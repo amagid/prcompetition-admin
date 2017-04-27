@@ -47,6 +47,31 @@ $(document).ready(function() {
         $("body").removeClass("modal_open");
     }
 
+    $(".load_participants").click(loadParticipants);
+    //Data Loaders
+    function loadParticipants() {
+        $.get('/api/participants/summary')
+            .done(function(participants) {
+                var frag = $(document.createDocumentFragment('<div class="rows">'));
+                for (var i = 0; i < participants.length; i++) {
+                    frag.append('<div class="participant row">'
+                                    + '<div class="cell caseid">' + participants[i].caseid + '</div>'
+                                    + '<div class="cell name">' + participants[i].name + '</div>'
+                                    + '<div class="cell points">' + participants[i].points + '</div>'
+                                    + '<div class="cell edit_container"><i class="fa fa-pencil-square-o edit"></i></div>'
+                                    + '<div class="cell trash_container"><i class="fa fa-trash-o delete"></i></div>'
+                                    + '</div>');
+                }
+                $(".table.participants_output").html('<div class="row bold"><div class="cell caseid">CaseID</div><div class="cell name">Full Name</div><div class="cell points">Total Points</div></div>');
+                $(".table.participants_output").append(frag);
+            }).fail(function(error) {
+                $(".table.participants_output").text("Failed to load participants.");
+            });
+    }
+
+
+
+
     //FORM SUBMISSIONS
     $(".participant_add .submit").click(function() {
         if (!$(this).hasClass("disabled")) {

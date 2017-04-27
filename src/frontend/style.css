@@ -170,3 +170,69 @@ i.close_modal {
     padding-top: 20px;
     width: calc(98% - 40px);
 }
+
+
+
+.table {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.rows {
+    overflow: auto;
+    width: 100%;
+}
+
+.row {
+    box-shadow: 0px 10px 5px -8px rgba(102,102,102,1);
+    border: 1px solid #BBB;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: calc(100% - 22px);
+    position: relative;
+    overflow: hidden;
+}
+
+.row > .cell {
+    float: left;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+}
+
+.row > .cell:not(:last-child) {
+    margin-right: 20px;
+}
+
+.cell.caseid {
+    width: calc(15% - 20px);
+}
+
+.cell.name {
+    width: calc(50% - 20px);
+}
+
+.cell.points {
+    width: calc(25% - 20px);
+}
+
+.cell.edit_container, .cell.trash_container {
+    width: calc(5% - 10px);
+    cursor: pointer;
+}
+
+.row i {
+    font-size: 20px;
+}
+
+i.delete {
+    color: #D41D19;
+}
+
+i.edit {
+    color: #125487;
+    position: relative;
+    top: 1px;
+}

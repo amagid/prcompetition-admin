@@ -38,7 +38,7 @@ const Participants = module.exports = db.define('participants', {
 });
 
 function getSummary() {
-    let queryString = "SELECT caseid, name, points FROM participants WHERE active=1";
+    let queryString = "SELECT caseid, name, points FROM participants WHERE active=1 ORDER BY points DESC";
     return mysql.executeQuery(queryString);
 }
 
