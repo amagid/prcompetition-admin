@@ -63,7 +63,7 @@ $(document).ready(function() {
                                     + '<div class="cell trash_container"><i class="fa fa-trash-o" id="delete"></i></div>'
                                     + '</div>');
                 }
-                $(".table.participants_output").html('<div class="row bold">'
+                $(".table.participants_output").html('<div class="row bold header">'
                                                     + '<div class="cell caseid">CaseID</div>'
                                                     + '<div class="cell name">Full Name</div>'
                                                     + '<div class="cell points">Total Points</div>'

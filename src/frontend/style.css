@@ -175,7 +175,6 @@ i.close_modal {
 
 .table {
     width: 100%;
-    overflow: hidden;
     position: relative;
 }
 
@@ -193,6 +192,12 @@ i.close_modal {
     width: calc(100% - 22px);
     position: relative;
     overflow: hidden;
+    left: 0px;
+    transition: left 0.2s ease;
+}
+
+.row:hover:not(.header) {
+    left: 30px;
 }
 
 .row > .cell {
