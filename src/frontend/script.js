@@ -70,6 +70,7 @@ $(document).ready(function() {
                                     + '<div class="cell name">' + participants[i].name + '</div>'
                                     + '<div class="cell points">' + participants[i].points + '</div>'
                                     + '<div class="cell active">' + (participants[i].active ? "Yes" : "No") + '</div>'
+                                    + '<div class="cell rescore_container"><i class="fa fa-calculator" id="rescore"></i></div>'
                                     + '<div class="cell edit_container"><i class="fa fa-pencil-square-o" id="edit"></i></div>'
                                     + '<div class="cell trash_container"><i class="fa fa-trash-o" id="delete"></i></div>'
                                     + '</div>');
@@ -85,7 +86,20 @@ $(document).ready(function() {
             });
     }
 
-    $(".participants_output").on('click', '#edit', function() {
+    $(".participants_output").on('click', '#rescore', function() {
+        var participant = $(this).parent().parent();
+        var caseid = participant.find(".caseid").text();
+        var name = participant.find(".name").text();
+        $.post('/api/participants/' + caseid + '/rescore')
+            .done(loadParticipants)
+            .fail(function(error) {
+                alert("Rescore Failed.");
+            })
+            .always(function() {
+                alert("Successfully recalculated score for " + name);
+            });
+    })
+    .on('click', '#edit', function() {
         var participant = $(this).parent().parent();
         var caseid = participant.find(".caseid").text();
         var name = participant.find(".name").text();

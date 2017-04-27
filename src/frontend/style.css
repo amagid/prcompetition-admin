@@ -220,15 +220,15 @@ i.close_modal {
 }
 
 .cell.points {
-    width: calc(20% - 20px);
+    width: calc(15% - 20px);
 }
 
 .cell.active {
     width: calc(10% - 20px);
 }
 
-.cell.edit_container, .cell.trash_container {
-    width: calc(5% - 10px);
+.cell.rescore_container, .cell.edit_container, .cell.trash_container {
+    width: calc(5% - 14px);
     cursor: pointer;
 }
 
@@ -242,6 +242,12 @@ i#delete {
 
 i#edit {
     color: #125487;
+    position: relative;
+    top: 1px;
+}
+
+i#rescore {
+    color: black;
     position: relative;
     top: 1px;
 }
