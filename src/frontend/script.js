@@ -74,12 +74,27 @@ $(document).ready(function() {
             });
     }
 
-    $(".participants_output #edit").click(function() {
+    $(".participants_output").on('click', '#edit', function() {
         var participant = $(this).parent().parent();
         var caseid = participant.find(".caseid").text();
         var name = participant.find(".name").text();
         var points = participant.find(".points").text();
         var active = participant.find(".active").text() === "Yes";
+    })
+    .on('click', '#delete', function() {
+        var participant = $(this).parent().parent();
+        var caseid = participant.find(".caseid").text();
+        var name = participant.find(".name").text();
+        if (confirm("Are you sure you want to delete " + name + "?")) {
+            $.ajax({
+                url:'/api/participants/' + caseid,
+                method: 'DELETE'
+            })
+            .done(loadParticipants)
+            .fail(function(error) {
+                alert("Deletion Failed.");
+            });
+        }
     });
 
 
