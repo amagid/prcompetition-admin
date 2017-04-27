@@ -211,11 +211,15 @@ i.close_modal {
 }
 
 .cell.name {
-    width: calc(50% - 20px);
+    width: calc(45% - 20px);
 }
 
 .cell.points {
-    width: calc(25% - 20px);
+    width: calc(20% - 20px);
+}
+
+.cell.active {
+    width: calc(10% - 20px);
 }
 
 .cell.edit_container, .cell.trash_container {
@@ -227,11 +231,11 @@ i.close_modal {
     font-size: 20px;
 }
 
-i.delete {
+i#delete {
     color: #D41D19;
 }
 
-i.edit {
+i#edit {
     color: #125487;
     position: relative;
     top: 1px;

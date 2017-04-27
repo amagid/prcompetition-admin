@@ -33,7 +33,9 @@ const Participants = module.exports = db.define('participants', {
         recalculateOne,
         recalculateAll,
         findAll,
-        create
+        create,
+        deleteOne,
+        updateByCaseID
     }
 });
 
@@ -96,6 +98,19 @@ function create(data) {
     const {name, caseid, points, active} = data;
     const queryString = `INSERT INTO participants (caseid, name, points, active, created_at, updated_at, deleted_at)
                         VALUES ("${caseid}", "${name}", ${points}, ${active || false}, NOW(), NOW(), NULL);`;
+
+    return mysql.executeQuery(queryString);
+}
+
+function deleteOne(caseid) {
+    const queryString = `DELETE FROM participants WHERE caseid="${caseid}";`;
+
+    return mysql.executeQuery(queryString);
+}
+
+function updateByCaseID(caseid, newData) {
+    const {newCaseID, newName, newPoints, newActive} = newData;
+    const queryString = `UPDATE participants SET caseid="${newCaseID}", name="${newName}", points="${newPoints}", active="${newActive}" WHERE caseid="${caseid}";`;
 
     return mysql.executeQuery(queryString);
 }

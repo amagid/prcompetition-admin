@@ -50,7 +50,7 @@ $(document).ready(function() {
     $(".load_participants").click(loadParticipants);
     //Data Loaders
     function loadParticipants() {
-        $.get('/api/participants/summary')
+        $.get('/api/participants/')
             .done(function(participants) {
                 var frag = $(document.createDocumentFragment('<div class="rows">'));
                 for (var i = 0; i < participants.length; i++) {
@@ -58,16 +58,29 @@ $(document).ready(function() {
                                     + '<div class="cell caseid">' + participants[i].caseid + '</div>'
                                     + '<div class="cell name">' + participants[i].name + '</div>'
                                     + '<div class="cell points">' + participants[i].points + '</div>'
-                                    + '<div class="cell edit_container"><i class="fa fa-pencil-square-o edit"></i></div>'
-                                    + '<div class="cell trash_container"><i class="fa fa-trash-o delete"></i></div>'
+                                    + '<div class="cell active">' + (participants[i].active ? "Yes" : "No") + '</div>'
+                                    + '<div class="cell edit_container"><i class="fa fa-pencil-square-o" id="edit"></i></div>'
+                                    + '<div class="cell trash_container"><i class="fa fa-trash-o" id="delete"></i></div>'
                                     + '</div>');
                 }
-                $(".table.participants_output").html('<div class="row bold"><div class="cell caseid">CaseID</div><div class="cell name">Full Name</div><div class="cell points">Total Points</div></div>');
+                $(".table.participants_output").html('<div class="row bold">'
+                                                    + '<div class="cell caseid">CaseID</div>'
+                                                    + '<div class="cell name">Full Name</div>'
+                                                    + '<div class="cell points">Total Points</div>'
+                                                    + '<div class="cell active">Active</div></div>');
                 $(".table.participants_output").append(frag);
             }).fail(function(error) {
                 $(".table.participants_output").text("Failed to load participants.");
             });
     }
+
+    $(".participants_output #edit").click(function() {
+        var participant = $(this).parent().parent();
+        var caseid = participant.find(".caseid").text();
+        var name = participant.find(".name").text();
+        var points = participant.find(".points").text();
+        var active = participant.find(".active").text() === "Yes";
+    });
 
 
 
