@@ -96,7 +96,7 @@ $(document).ready(function() {
                 alert("Rescore Failed.");
             })
             .always(function() {
-                alert("Successfully recalculated score for " + name);
+                alert("Successfully recalculated score for " + name + "!");
             });
     })
     .on('click', '#edit', function() {
