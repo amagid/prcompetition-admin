@@ -47,6 +47,17 @@ $(document).ready(function() {
         $("body").removeClass("modal_open");
     }
 
+    $(".form_button.rescore").click(function() {
+        $.post('/api/participants/rescore')
+            .done(loadParticipants)
+            .fail(function(error) {
+                alert("Score Recalculation Failed.");
+            })
+            .always(function() {
+                alert("Score Recalculation Complete!");
+            });
+    })
+
     $(".load_participants").click(loadParticipants);
     //Data Loaders
     function loadParticipants() {
