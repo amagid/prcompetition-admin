@@ -26,6 +26,7 @@ $(document).ready(function () {
     });
 
     $(".open_modal").click(function () {
+        clearForm($(".modal_content"));
         openModalForm($(this).data("form"));
     });
 
