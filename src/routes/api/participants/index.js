@@ -21,10 +21,6 @@ function routes(router) {
     router.delete('/:caseid',
         validation(validators.validateDelete),
         (req, res) => res.promise(Participants.deleteOne(req.params.caseid)));
-    
-    router.patch('/:caseid',
-        validation(validators.validatePatch),
-        (req, res) => res.promise(Participants.updateByCaseID(req.params.caseid, req.body.newData)));
 
     router.post('/rescore',
         (req, res) => res.promise(Participants.recalculateAll()));
@@ -32,4 +28,8 @@ function routes(router) {
     router.post('/:caseid/rescore',
         validation(validators.validateRecalculateOne),
         (req, res) => res.promise(Participants.recalculateOne(req.params.caseid)));
+        
+    router.post('/:caseid',
+        validation(validators.validatePatch),
+        (req, res) => res.promise(Participants.updateByCaseID(req.params.caseid, req.body)));
 }

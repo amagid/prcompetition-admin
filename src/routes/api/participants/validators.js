@@ -23,9 +23,6 @@ function validateDelete(input) {
 
 function validatePatch(input) {
     input.check('caseid').notEmpty().matches(caseIDPattern);
-    input.check('newData.name').notEmpty();
-    input.check('newData.points').notEmpty().isInt();
-    input.check('newData.caseid').notEmpty().matches(caseIDPattern);
 }
 
 function validateRecalculateOne(input) {

@@ -108,9 +108,10 @@ function deleteOne(caseid) {
     return mysql.executeQuery(queryString);
 }
 
-function updateByCaseID(caseid, newData) {
-    const {newCaseID, newName, newPoints, newActive} = newData;
-    const queryString = `UPDATE participants SET caseid="${newCaseID}", name="${newName}", points="${newPoints}", active="${newActive}" WHERE caseid="${caseid}";`;
+function updateByCaseID(oldCaseID, newData) {
+    console.log('woo');
+    const {caseid, name, points, active} = newData;
+    const queryString = `UPDATE participants SET caseid="${caseid}", name="${name}", points="${points}", active="${active == "false" || !active ? 0 : 1}" WHERE caseid="${oldCaseID}";`;
 
     return mysql.executeQuery(queryString);
 }

@@ -251,3 +251,12 @@ i#rescore {
     position: relative;
     top: 1px;
 }
+
+.only_edit, .edit .no_edit {
+    display: none;
+}
+
+.edit .only_edit, .no_edit {
+    display: block;
+}
+
