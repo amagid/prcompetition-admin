@@ -150,6 +150,18 @@ body.modal_open {
     pointer-events: none;
 }
 
+.modal_tab {
+    display: none;
+}
+
+.participant_add .modal_tab.participant_add {
+    display: block;
+}
+
+.opportunity_add .modal_tab.opportunity_add {
+    display: block;
+}
+
 .modal_open .modal_content {
     opacity: 1;
     top: 0px;
@@ -205,29 +217,67 @@ i.close_modal {
     font-size: 16px;
     color: black;
     text-align: center;
+    min-height: 10px;
 }
 
 .row > .cell:not(:last-child) {
     margin-right: 20px;
 }
 
-.cell.caseid {
+.row > .cell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.participants_output .cell.caseid {
     width: calc(15% - 20px);
 }
 
-.cell.name {
+.participants_output .cell.name {
     width: calc(45% - 20px);
 }
 
-.cell.points {
+.participants_output .cell.points {
     width: calc(15% - 20px);
 }
 
-.cell.active {
+.participants_output .cell.active {
     width: calc(10% - 20px);
 }
 
-.cell.rescore_container, .cell.edit_container, .cell.trash_container {
+.participants_output .cell.rescore_container, .participants_output .cell.edit_container, .participants_output .cell.trash_container {
+    width: calc(5% - 14px);
+    cursor: pointer;
+}
+
+
+
+.opportunities_output .cell.opportunity {
+    width: calc(23% - 20px);
+    text-align: left;
+}
+
+.opportunities_output .cell.value {
+    width: calc(10% - 20px);
+}
+
+.opportunities_output .cell.date {
+    width: calc(14% - 20px);
+}
+
+.opportunities_output .cell.description {
+    width: calc(23% - 20px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.opportunities_output .cell.event {
+    width: calc(15% - 20px);
+}
+
+.opportunities_output .cell.attendance_container, .opportunities_output .cell.edit_container, .opportunities_output .cell.trash_container {
     width: calc(5% - 14px);
     cursor: pointer;
 }

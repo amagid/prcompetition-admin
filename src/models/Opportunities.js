@@ -6,28 +6,28 @@ const APIError = require('../APIError');
 const Events = require('./Events');
 
 const Opportunities = module.exports = db.define('opportunities', {
-	opportunity: {
+    opportunity: {
         field: 'opportunity',
         type: Sequelize.DataTypes.STRING,
         allowNull: false,
         primaryKey: true
     },
-	value: {
+    value: {
         field: 'value',
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false
     },
-	date: {
+    date: {
         field: 'date',
         type: Sequelize.DataTypes.DATE,
         allowNull: false
     },
-	description: {
+    description: {
         field: 'description',
         type: Sequelize.DataTypes.STRING,
         allowNull: true
     },
-	event: {
+    event: {
         field: 'event',
         type: Sequelize.DataTypes.STRING,
         allowNull: false,
@@ -37,9 +37,9 @@ const Opportunities = module.exports = db.define('opportunities', {
             key: 'event'
         }
     },
-	semester: {
+    semester: {
         field: 'semester',
-        type: Sequelize.DataTypes.ENUM('spring','fall'),
+        type: Sequelize.DataTypes.ENUM('spring', 'fall'),
         allowNull: false,
         primaryKey: true,
         references: {
@@ -47,7 +47,7 @@ const Opportunities = module.exports = db.define('opportunities', {
             key: 'semester'
         }
     },
-	year: {
+    year: {
         field: 'year',
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
@@ -63,19 +63,31 @@ const Opportunities = module.exports = db.define('opportunities', {
         checkAttendance,
         getAttendance,
         removeAttendance,
-        create      
+        create,
+        search
     }
 });
 
 function addAttendance(caseid, data) {
-    const {opp, event, semester, year, date} = data;
+    const {
+        opp,
+        event,
+        semester,
+        year,
+        date
+    } = data;
 
     const queryString = `INSERT INTO attendance VALUES ("${caseid}", "${opp}", "${event}", "${semester}", "${year}", "${date}", NOW(), NOW(), NULL, NULL);`;
     return mysql.executeQuery(queryString);
 }
 
 function checkAttendance(caseid, data) {
-    const {opp, event, semester, year} = data;
+    const {
+        opp,
+        event,
+        semester,
+        year
+    } = data;
 
     const queryString = `SELECT * FROM attendance a WHERE a.opportunity = "${opp}" AND a.event = "${event}" AND a.semester = "${semester}" AND a.year = "${year}" AND a.participant = "${caseid}";`;
     return mysql.executeQuery(queryString).then(result => {
@@ -84,22 +96,45 @@ function checkAttendance(caseid, data) {
 }
 
 function getAttendance(data) {
-    const {opp, event, semester, year} = data;
+    const {
+        opp,
+        event,
+        semester,
+        year
+    } = data;
 
     const queryString = `SELECT a.participant FROM opportunities o INNER JOIN attendance a ON o.opportunity = a.opportunity AND o.semester = a.semester AND o.year = a.year AND o.date = a.date and o.event = a.event WHERE o.opportunity = "${opp}" AND o.semester = "${semester}" AND o.year = "${year}" AND o.event = "${event}";`;
     return mysql.executeQuery(queryString);
 }
 
 function removeAttendance(caseid, data) {
-    const {opp, event, semester, year} = data;
+    const {
+        opp,
+        event,
+        semester,
+        year
+    } = data;
 
     const queryString = `DELETE FROM attendance WHERE participant="${caseid}" AND opportunity="${opp}" AND semester = "${semester}" AND year = "${year}" AND event = "${event}";`;
     return mysql.executeQuery(queryString);
 }
 
 function create(data) {
-    const {opp, value, date, description, event, semester, year} = data;
+    const {
+        opp,
+        value,
+        date,
+        description,
+        event,
+        semester,
+        year
+    } = data;
 
     const queryString = `INSERT into opportunities (opportunity, value, date, description, event, semester, year, created_at, updated_at, deleted_at) VALUES ("${opp}", "${value}", "${date}", "${description}", "${event}", "${semester}", "${year}", NOW(), NOW(), NULL);`;
+    return mysql.executeQuery(queryString);
+}
+
+function search(query) {
+    const queryString = `SELECT opportunity, value, date, description, event, semester, year FROM opportunities;`;
     return mysql.executeQuery(queryString);
 }

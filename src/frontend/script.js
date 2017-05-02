@@ -79,7 +79,18 @@ $(document).ready(function () {
             .always(function () {
                 alert("Score Recalculation Complete!");
             });
-    })
+    });
+
+    function getEventString(entity) {
+        return 'Title: ' + entity.event + '\n' +
+                'Semester: ' + entity.semester[0].toUpperCase() + entity.semester.substring(1) + '\n' +
+                'Year: ' + entity.year;
+    }
+
+    function formatDateString(dateString) {
+        var date = new Date(dateString);
+        return date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
+    }
 
     $(".load_participants").click(loadParticipants);
     //Data Loaders
@@ -150,6 +161,38 @@ $(document).ready(function () {
                     });
             }
         });
+
+
+
+    $(".load_opportunities").click(loadOpportunities);
+    //Data Loaders
+    function loadOpportunities() {
+        $.get('/api/opportunities/')
+            .done(function (opportunities) {
+                var frag = $(document.createDocumentFragment('<div class="rows">'));
+                for (var i = 0; i < opportunities.length; i++) {
+                    frag.append('<div class="opportunity row">' +
+                        '<div class="cell opportunity" title="' + opportunities[i].opportunity + '">' + opportunities[i].opportunity + '</div>' +
+                        '<div class="cell value" title="' + opportunities[i].value + '">' + opportunities[i].value + '</div>' +
+                        '<div class="cell date" title="' + formatDateString(opportunities[i].date) + '">' + formatDateString(opportunities[i].date) + '</div>' +
+                        '<div class="cell description" title="' + opportunities[i].description + '">' + opportunities[i].description + '</div>' +
+                        '<div class="cell event" title="' + getEventString(opportunities[i]) + '">' + opportunities[i].event + '</div>' +
+                        '<div class="cell attendance_container"><i class="fa fa-bar-chart" id="attendance"></i></div>' +
+                        '<div class="cell edit_container"><i class="fa fa-pencil-square-o" id="edit"></i></div>' +
+                        '<div class="cell trash_container"><i class="fa fa-trash-o" id="delete"></i></div>' +
+                        '</div>');
+                }
+                $(".table.opportunities_output").html('<div class="row bold header">' +
+                    '<div class="cell opportunity">Name</div>' +
+                    '<div class="cell value">Value</div>' +
+                    '<div class="cell date">Date</div>' +
+                    '<div class="cell description">Description</div>' +
+                    '<div class="cell event">Event</div></div>');
+                $(".table.opportunities_output").append(frag);
+            }).fail(function (error) {
+                $(".table.opportunities_output").text("Failed to load opportunities.");
+            });
+    }
 
 
 
