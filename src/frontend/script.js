@@ -113,9 +113,9 @@ $(document).ready(function () {
                         '<div class="cell name">' + participants[i].name + '</div>' +
                         '<div class="cell points">' + participants[i].points + '</div>' +
                         '<div class="cell active">' + (participants[i].active ? "Yes" : "No") + '</div>' +
-                        '<div class="cell rescore_container"><i class="fa fa-calculator" id="rescore"></i></div>' +
-                        '<div class="cell edit_container"><i class="fa fa-pencil-square-o" id="edit"></i></div>' +
-                        '<div class="cell trash_container"><i class="fa fa-trash-o" id="delete"></i></div>' +
+                        '<div class="cell rescore_container"><i class="fa fa-calculator" id="rescore" title="Recalculate Score"></i></div>' +
+                        '<div class="cell edit_container"><i class="fa fa-pencil-square-o" id="edit" title="Edit Participant"></i></div>' +
+                        '<div class="cell trash_container"><i class="fa fa-trash-o" id="delete" title="Delete Participant"></i></div>' +
                         '</div>');
                 }
                 $(".table.participants_output").html('<div class="row bold header">' +
@@ -186,9 +186,9 @@ $(document).ready(function () {
                         '<div class="cell date" title="' + formatDateString(opportunities[i].date) + '">' + formatDateString(opportunities[i].date) + '</div>' +
                         '<div class="cell description" title="' + opportunities[i].description + '">' + opportunities[i].description + '</div>' +
                         '<div class="cell event" title="' + getEventString(opportunities[i]) + '">' + opportunities[i].event + '</div>' +
-                        '<div class="cell attendance_container"><i class="fa fa-bar-chart" id="attendance"></i></div>' +
-                        '<div class="cell edit_container"><i class="fa fa-pencil-square-o" id="edit"></i></div>' +
-                        '<div class="cell trash_container"><i class="fa fa-trash-o" id="delete"></i></div>' +
+                        '<div class="cell attendance_container"><i class="fa fa-bar-chart" id="attendance" title="Show Attendance Data"></i></div>' +
+                        '<div class="cell edit_container"><i class="fa fa-pencil-square-o" id="edit" title="Edit Opportunity"></i></div>' +
+                        '<div class="cell trash_container"><i class="fa fa-trash-o" id="delete" title="Delete Opportunity"></i></div>' +
                         '</div>');
                 }
                 $(".table.opportunities_output").html('<div class="row bold header">' +
