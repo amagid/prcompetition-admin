@@ -87,6 +87,15 @@ $(document).ready(function () {
                 'Year: ' + entity.year;
     }
 
+    function extractEventData(eventString) {
+        var eventArray = eventString.split('\n');
+        return {
+            event: eventArray[0].substring(7),
+            semester: eventArray[1].substring(10),
+            year: eventArray[2].substring(6),
+        };
+    }
+
     function formatDateString(dateString) {
         var date = new Date(dateString);
         return date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
@@ -193,6 +202,47 @@ $(document).ready(function () {
                 $(".table.opportunities_output").text("Failed to load opportunities.");
             });
     }
+    
+    $(".opportunities_output").on('click', '#attendance', function () {
+        })
+        .on('click', '#edit', function () {
+            var opp = $(this).parent().parent();
+            var opportunity = opp.find(".opportunity").text();
+            var value = opp.find(".value").text();
+            var date = opp.find(".date").text();
+            var description = opp.find(".description").text();
+            var eventData = extractEventData(opp.find(".event").attr("title"));
+            openModalFormWithData("opportunity_add", {
+                opportunity: opportunity,
+                value: value,
+                date: date,
+                synopsis: description,
+                event: eventData.event,
+                semester: eventData.semester,
+                year: eventData.year
+            });
+        })
+        .on('click', '#delete', function () {
+            var opp = $(this).parent().parent();
+            var opportunity = opp.find(".opportunity").text();
+            var eventData = extractEventDate(opp.find(".event").attr("title"));
+            if (confirm("Are you sure you want to delete " + opportunity + "?")) {
+                $.ajax({
+                        url: '/api/opportunities/' + opportunity,
+                        method: 'DELETE',
+                        data: {
+                            opportunity: opportunity,
+                            event: eventData.event,
+                            semester: eventData.semester,
+                            year: eventData.year
+                        }
+                    })
+                    .done(loadOpportunities)
+                    .fail(function (error) {
+                        alert("Deletion Failed.");
+                    });
+            }
+        });
 
 
 
