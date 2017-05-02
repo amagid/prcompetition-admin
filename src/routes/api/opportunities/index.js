@@ -17,9 +17,9 @@ function routes(router) {
         validation(validators.validateDelete),
         (req, res) => res.promise(Opportunities.deleteOne(req.params.opp, req.body)));
     
-    router.patch('/:opp',
+    router.post('/:opp',
         validation(validators.validatePatch),
-        (req, res) => res.promise(Opportunities.update(req.body.opportunity, req.body.updates)));
+        (req, res) => res.promise(Opportunities.update(req.body)));
 
     router.post('/:opp/attendance/:caseid',
         (req, res) => res.promise(Opportunities.addAttendance(req.params.caseid, req.body)));

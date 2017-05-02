@@ -39,6 +39,7 @@ $(document).ready(function () {
         $(".modal_content").addClass(formSelector);
         var form = $(".modal_content .modal_tab." + formSelector);
         form.addClass("edit");
+        form.attr("data-keys", JSON.stringify(data.keys));
         var formElement;
         for (prop in data) {
             formElement = form.find("#" + prop);
@@ -83,8 +84,8 @@ $(document).ready(function () {
 
     function getEventString(entity) {
         return 'Title: ' + entity.event + '\n' +
-                'Semester: ' + entity.semester[0].toUpperCase() + entity.semester.substring(1) + '\n' +
-                'Year: ' + entity.year;
+            'Semester: ' + entity.semester[0].toUpperCase() + entity.semester.substring(1) + '\n' +
+            'Year: ' + entity.year;
     }
 
     function extractEventData(eventString) {
@@ -152,7 +153,10 @@ $(document).ready(function () {
                 caseid: caseid,
                 name: name,
                 points: points,
-                active: active
+                active: active,
+                keys: {
+                    caseid: caseid
+                }
             });
         })
         .on('click', '#delete', function () {
@@ -202,9 +206,8 @@ $(document).ready(function () {
                 $(".table.opportunities_output").text("Failed to load opportunities.");
             });
     }
-    
-    $(".opportunities_output").on('click', '#attendance', function () {
-        })
+
+    $(".opportunities_output").on('click', '#attendance', function () {})
         .on('click', '#edit', function () {
             var opp = $(this).parent().parent();
             var opportunity = opp.find(".opportunity").text();
@@ -219,13 +222,19 @@ $(document).ready(function () {
                 synopsis: description,
                 event: eventData.event,
                 semester: eventData.semester,
-                year: eventData.year
+                year: eventData.year,
+                keys: {
+                    opportunity: opportunity,
+                    event: eventData.event,
+                    semester: eventData.semester,
+                    year: eventData.year
+                }
             });
         })
         .on('click', '#delete', function () {
             var opp = $(this).parent().parent();
             var opportunity = opp.find(".opportunity").text();
-            var eventData = extractEventDate(opp.find(".event").attr("title"));
+            var eventData = extractEventData(opp.find(".event").attr("title"));
             if (confirm("Are you sure you want to delete " + opportunity + "?")) {
                 $.ajax({
                         url: '/api/opportunities/' + opportunity,
@@ -255,6 +264,7 @@ $(document).ready(function () {
             var caseid = $(this).parent().find("#caseid").val();
             var points = $(this).parent().find("#points").val();
             var active = $(this).parent().find("#active").hasClass("checked");
+            var keys = $(this).parent().data("keys");
 
             var button = $(this);
 
@@ -277,10 +287,13 @@ $(document).ready(function () {
             } else {
 
                 $.post("/api/participants/" + caseid, {
-                    name: name,
-                    caseid: caseid,
-                    points: points,
-                    active: active
+                    keys: keys,
+                    updates: {
+                        name: name,
+                        caseid: caseid,
+                        points: points,
+                        active: active
+                    }
                 }).done(function (result) {
                     alert("Success!");
                     clearForm(button.parent());
@@ -295,34 +308,63 @@ $(document).ready(function () {
         }
     });
 
-    $(".opportunity_outer .opportunity_add .submit").click(function () {
+    $(".opportunity_add .submit").click(function () {
         if (!$(this).hasClass("disabled")) {
             $(this).addClass("disabled");
-            var opp = $(this).parent().find("#opp").val();
+            var opportunity = $(this).parent().find("#opportunity").val();
             var date = (new Date($(this).parent().find("#date").val())).toISOString().split('Z')[0];
             var value = $(this).parent().find("#value").val();
             var event = $(this).parent().find("#event").val();
             var description = $(this).parent().find("#synopsis").val();
             var semester = $(this).parent().find("#semester").val();
             var year = $(this).parent().find("#year").val();
+            var keys = $(this).parent().data("keys");
 
             var button = $(this);
-            $.post("/api/opportunities", {
-                opp: opp,
-                date: date,
-                value: parseInt(value),
-                event: event,
-                description: description,
-                semester: semester.toLowerCase(),
-                year: parseInt(year)
-            }).done(function (result) {
-                alert("Success!");
-                clearForm(button.parent());
-            }).fail(function (error) {
-                alert("Operation Failed. Reason: " + (error.message || "Unknown Error"));
-            }).always(function () {
-                button.removeClass("disabled");
-            });
+
+            if ($(this).parent(".opportunity_add").hasClass("edit")) {
+
+                $.post("/api/opportunities/" + encodeURIComponent(opportunity), {
+                    keyOpp: keys.opportunity,
+                    keyEvent: keys.event,
+                    keySemester: keys.semester,
+                    keyYear: keys.year,
+                    opp: opportunity,
+                    date: date,
+                    value: parseInt(value),
+                    event: event,
+                    desc: description,
+                    sem: semester.toLowerCase(),
+                    year: parseInt(year)
+                }).done(function (result) {
+                    alert("Success!");
+                    clearForm(button.parent());
+                }).fail(function (error) {
+                    alert("Operation Failed. Reason: " + (error.message || "Unknown Error"));
+                }).always(function () {
+                    button.removeClass("disabled");
+                });
+
+            } else {
+
+                $.post("/api/opportunities", {
+                    opp: opportunity,
+                    date: date,
+                    value: parseInt(value),
+                    event: event,
+                    description: description,
+                    semester: semester.toLowerCase(),
+                    year: parseInt(year)
+                }).done(function (result) {
+                    alert("Success!");
+                    clearForm(button.parent());
+                }).fail(function (error) {
+                    alert("Operation Failed. Reason: " + (error.message || "Unknown Error"));
+                }).always(function () {
+                    button.removeClass("disabled");
+                });
+
+            }
         }
     });
 });

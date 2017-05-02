@@ -31,5 +31,5 @@ function routes(router) {
         
     router.post('/:caseid',
         validation(validators.validatePatch),
-        (req, res) => res.promise(Participants.updateByCaseID(req.params.caseid, req.body)));
+        (req, res) => res.promise(Participants.updateByCaseID(req.params.caseid, req.body.updates)));
 }

@@ -64,7 +64,9 @@ const Opportunities = module.exports = db.define('opportunities', {
         getAttendance,
         removeAttendance,
         create,
-        search
+        search,
+        update,
+        deleteOne
     }
 });
 
@@ -136,5 +138,18 @@ function create(data) {
 
 function search(query) {
     const queryString = `SELECT opportunity, value, date, description, event, semester, year FROM opportunities;`;
+    return mysql.executeQuery(queryString);
+}
+
+function update(data) {
+    const {keyOpp, keyEvent, keySemester, keyYear, opp, value, date, desc, event, sem, year} = data;
+    const queryString = `UPDATE opportunities set opportunity="${opp}", value="${value}", date="${date}", description="${desc}", event="${event}", semester="${sem}", year="${year}" WHERE opportunity="${keyOpp}" AND event="${keyEvent}" AND semester="${keySemester}" AND year="${keyYear}";`
+    return mysql.executeQuery(queryString);
+}
+
+function deleteOne(opp, data) {
+    const { opportunity, event, semester, year } = data;
+    const queryString = `DELETE FROM opportunities WHERE opportunity="${opportunity}" AND event="${event}" AND semester="${semester.toLowerCase()}" AND year="${year}";`;
+
     return mysql.executeQuery(queryString);
 }
